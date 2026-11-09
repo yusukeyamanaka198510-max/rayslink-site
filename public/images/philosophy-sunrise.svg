@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="夕日と雲海のイメージ（仮画像）">
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EDE3D6"/><stop offset=".45" stop-color="#F3DDC2"/><stop offset=".62" stop-color="#F1BE8A"/><stop offset="1" stop-color="#E9A56C"/></linearGradient>
+<radialGradient id="sun" cx="0.517" cy="0.600" r=".42"><stop offset="0" stop-color="#FFF4DA" stop-opacity=".95"/><stop offset=".25" stop-color="#FBD9A3" stop-opacity=".6"/><stop offset="1" stop-color="#F3C28E" stop-opacity="0"/></radialGradient>
+<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6E6D2"/><stop offset=".55" stop-color="#E9D4BF"/><stop offset="1" stop-color="#C9B7A6"/></linearGradient>
+<filter id="b1" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+<filter id="b2" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="26"/></filter>
+</defs>
+<rect width="1200" height="900" fill="url(#sky)"/>
+<rect width="1200" height="900" fill="url(#sun)"/>
+<circle cx="620" cy="540" r="34" fill="#FFF1D3"/>
+<path d="M0 600 L130 560 L260 590 L420 535 L560 585 L700 548 L860 592 L1010 556 L1200 598 L1200 640 L0 640Z" fill="#8F9AAE" opacity=".45"/><path d="M0 625 L180 590 L330 618 L520 575 L690 622 L880 584 L1040 620 L1200 596 L1200 660 L0 660Z" fill="#6F7C92" opacity=".5"/>
+<rect y="610" width="1200" height="290" fill="url(#sea)"/>
+<g filter="url(#b1)"><ellipse cx="725" cy="626" rx="161" ry="40" fill="#FBF1E3" opacity="0.75"/><ellipse cx="417" cy="657" rx="370" ry="49" fill="#FBF1E3" opacity="0.75"/><ellipse cx="622" cy="662" rx="309" ry="28" fill="#FBF1E3" opacity="0.75"/><ellipse cx="1159" cy="678" rx="352" ry="53" fill="#FBF1E3" opacity="0.75"/><ellipse cx="449" cy="640" rx="183" ry="48" fill="#FBF1E3" opacity="0.75"/><ellipse cx="-13" cy="607" rx="206" ry="32" fill="#FBF1E3" opacity="0.75"/><ellipse cx="376" cy="605" rx="160" ry="31" fill="#FBF1E3" opacity="0.75"/><ellipse cx="42" cy="636" rx="166" ry="56" fill="#FBF1E3" opacity="0.75"/><ellipse cx="760" cy="615" rx="215" ry="38" fill="#FBF1E3" opacity="0.75"/></g>
+<g filter="url(#b2)"><ellipse cx="410" cy="704" rx="347" ry="60" fill="#F7EADB" opacity="0.8"/><ellipse cx="552" cy="743" rx="179" ry="29" fill="#F7EADB" opacity="0.8"/><ellipse cx="380" cy="719" rx="342" ry="31" fill="#F7EADB" opacity="0.8"/><ellipse cx="-68" cy="795" rx="276" ry="31" fill="#F7EADB" opacity="0.8"/><ellipse cx="660" cy="693" rx="276" ry="59" fill="#F7EADB" opacity="0.8"/><ellipse cx="1109" cy="767" rx="217" ry="38" fill="#F7EADB" opacity="0.8"/><ellipse cx="134" cy="775" rx="277" ry="52" fill="#F7EADB" opacity="0.8"/><ellipse cx="362" cy="715" rx="339" ry="59" fill="#F7EADB" opacity="0.8"/><ellipse cx="1094" cy="779" rx="340" ry="51" fill="#F7EADB" opacity="0.8"/></g>
+<g filter="url(#b2)"><ellipse cx="217" cy="842" rx="238" ry="27" fill="#E6D3BF" opacity="0.9"/><ellipse cx="-61" cy="814" rx="217" ry="50" fill="#E6D3BF" opacity="0.9"/><ellipse cx="1239" cy="834" rx="366" ry="60" fill="#E6D3BF" opacity="0.9"/><ellipse cx="1237" cy="824" rx="209" ry="34" fill="#E6D3BF" opacity="0.9"/><ellipse cx="175" cy="805" rx="297" ry="57" fill="#E6D3BF" opacity="0.9"/><ellipse cx="1077" cy="838" rx="304" ry="53" fill="#E6D3BF" opacity="0.9"/><ellipse cx="19" cy="859" rx="360" ry="53" fill="#E6D3BF" opacity="0.9"/><ellipse cx="950" cy="837" rx="199" ry="53" fill="#E6D3BF" opacity="0.9"/></g>
+<text x="600" y="868" text-anchor="middle" font-family="sans-serif" font-size="22" letter-spacing="5" fill="#14253B" fill-opacity=".45">PHOTO PLACEHOLDER — 差し替え予定</text>
+</svg>

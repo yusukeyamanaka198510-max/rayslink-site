@@ -33,3 +33,9 @@ export const logos = {
   horizontalWhite: '/logos/logo-horizontal-white.png', // 暗い背景用（暫定生成。README参照）
   verticalNavy: '/logos/logo-vertical-navy.png',
 };
+
+// 写真素材（提供されたら差し替える）。現在は仮イラスト。
+export const images = {
+  hero: '/images/hero-sunset.svg',          // 夕日と雲海
+  philosophy: '/images/philosophy-sunrise.svg', // 未来へ向かう印象のカット
+};

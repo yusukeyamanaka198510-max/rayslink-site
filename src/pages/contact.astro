@@ -1,20 +1,19 @@
 ---
 import Base from '../layouts/Base.astro';
+import Curve from '../components/Curve.astro';
 const types = ['事業・サービス', '提携・協業', '取材・メディア', 'その他'];
 ---
 <Base title="CONTACT" path="/contact/" description="株式会社Rays linkへのお問い合わせ。事業・サービス、提携・協業、取材・メディアなどのご相談を受け付けています。">
-  <section class="phero" style="padding-bottom:110px">
-    <div class="bg-layer" aria-hidden="true">
-      <div class="orb glow" style="width:70vw;aspect-ratio:1;left:-20vw;top:-10vw" data-speed="0.04"></div>
-      <div class="orb glow" style="width:60vw;aspect-ratio:1;right:-20vw;top:30%" data-speed="-0.04"></div>
-    </div>
-    <div class="wrap above" style="text-align:center">
+  <section class="phero" style="padding-bottom:clamp(40px,6vw,80px)">
+    <div class="wrap" style="text-align:left">
       <p class="eyebrow" data-reveal>CONTACT</p>
-      <h1 class="mega" style="margin-top:16px" data-reveal>話そう、一緒に。</h1>
+      <h1 class="mega" style="margin-top:18px"><span class="line-in"><span>話そう、</span></span><span class="line-in" style="--d:.1s"><span>一緒に。</span></span></h1>
       <p class="lead" style="margin-top:20px">以下のフォームよりお問い合わせください。</p>
     </div>
-    <div class="wrap above" style="margin-top:48px">
-      <div class="glass form-panel" id="cform-panel">
+  </section>
+  <section class="bg-beige" style="padding-bottom:clamp(60px,9vw,120px)">
+    <div class="wrap">
+      <div class="matte form-panel" id="cform-panel" style="background:var(--ivory)">
         <ol class="steps" aria-label="進行状況">
           <li class="on" data-s="1"><span>1</span>入力</li><li data-s="2"><span>2</span>内容確認</li><li data-s="3"><span>3</span>送信完了</li>
         </ol>
@@ -57,6 +56,7 @@ const types = ['事業・サービス', '提携・協業', '取材・メディ�
       </div>
     </div>
   </section>
+  <Curve from="beige" to="ivory" variant="1" />
 </Base>
 
 <script>

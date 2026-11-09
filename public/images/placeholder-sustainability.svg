@@ -1,5 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="仮画像（差し替え予定）">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dcfce7"/><stop offset="1" stop-color="#7dd3fc"/></linearGradient></defs>
-<rect width="1200" height="900" fill="url(#g)"/>
-<circle cx="380" cy="420" r="300" fill="#fff" fill-opacity=".35"/><circle cx="760" cy="520" r="300" fill="#fff" fill-opacity=".3"/>
-<text x="600" y="840" text-anchor="middle" font-family="sans-serif" font-size="30" letter-spacing="6" fill="#1e3a8a" fill-opacity=".7">PHOTO PLACEHOLDER — 差し替え予定</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" preserveAspectRatio="xMidYMid slice" role="img" aria-label="仮画像（差し替え予定）"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D5DCC9"/><stop offset="1" stop-color="#9FB09A"/></linearGradient></defs><rect width="900" height="1100" fill="url(#g)"/><circle cx="330" cy="430" r="250" fill="#fff" fill-opacity=".22"/><circle cx="600" cy="520" r="250" fill="#fff" fill-opacity=".18"/><text x="450" y="560" text-anchor="middle" font-family="sans-serif" font-size="24" letter-spacing="6" fill="#14253B" fill-opacity=".55">PHOTO PLACEHOLDER</text></svg>

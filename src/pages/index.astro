@@ -1,95 +1,100 @@
 ---
 import Base from '../layouts/Base.astro';
+import Curve from '../components/Curve.astro';
 import { domains } from '../data/business';
-import { history } from '../data/site';
+import { history, images } from '../data/site';
 ---
-<Base title="TOP" path="/" description="株式会社Rays linkの公式サイト。「一笑懸命。」を掲げ、若者に選択肢を提供し、希望や可能性を届けます。金融教育・宿泊・IT・デジタルなどを展開。">
+<Base title="TOP" path="/" description="株式会社Rays linkの公式サイト。Live Fully. Laugh Freely. 一笑懸命。若者に選択肢を提供し、希望や可能性を届けます。金融教育・宿泊・IT・デジタルなどを展開。">
   <section class="hero">
-    <div class="hero-art" aria-hidden="true">
-      <div class="orb glow glow1" data-speed="-0.05"></div>
-      <div class="orb glow glow2 " data-speed="0.04"></div>
-      <div class="ring-wrap" data-speed="-0.08" style="position:absolute;inset:0"><div class="ring ring-a float"></div></div>
-      <div class="ring-wrap" data-speed="0.06" style="position:absolute;inset:0"><div class="ring ring-b float" style="animation-delay:-3s"></div></div>
+    <div class="wrap">
+      <h1 aria-label="Live Fully. Laugh Freely."><span class="line-in" aria-hidden="true"><span>Live Fully.</span></span><span class="line-in" aria-hidden="true" style="--d:.12s"><span>Laugh Freely.</span></span></h1>
+      <div class="jp" data-reveal style="--d:.35s">
+        <p class="name">一笑懸命。</p>
+        <p style="text-wrap:balance">笑える人生のために、全力で生きる。</p>
+      </div>
+      <div class="btns" data-reveal style="--d:.5s">
+        <a class="btn btn-primary" href="/about/">私たちについて <span aria-hidden="true">→</span></a>
+        <a class="btn btn-text" href="/business/">事業を見る</a>
+      </div>
     </div>
-    <div class="wrap above">
-      <div class="hero-grid">
+    <div class="photo-blob" aria-hidden="true"><img src={images.hero} alt="" width="1200" height="900" data-speed="-0.05" fetchpriority="high" /></div>
+    <Curve from="beige" to="navy" variant="1" />
+  </section>
+  <Curve from="navy" to="beige" variant="2" />
+
+  <section class="philo bg-beige" id="philosophy" style="padding-top:clamp(20px,4vw,60px)">
+    <div class="wrap">
+      <div class="philo-grid">
+        <div data-reveal>
+          <p class="eyebrow">OUR PHILOSOPHY</p>
+          <h2 style="margin-top:22px">若者に選択肢を提供し、希望や可能性を届ける。</h2>
+          <p class="lead">一人ひとりが光を放ち、その光が社会を照らす。私たちは「一笑懸命」を理念に、笑いながら全力で、未来へ向かいます。</p>
+          <a class="btn btn-secondary" href="/philosophy/">私たちの理念 <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="philo-photo" data-reveal style="--d:.15s"><img src={images.philosophy} alt="" width="1200" height="900" loading="lazy" data-speed="-0.04" /></div>
+      </div>
+    </div>
+  </section>
+  <Curve from="beige" to="navy" variant="3" over />
+
+  <section class="bg-navy section" id="business" style="padding-top:clamp(30px,5vw,70px)">
+    <div class="wrap">
+      <div class="biz-head" data-reveal>
         <div>
-          <p class="eyebrow" data-reveal>RAYS LINK</p>
-          <h1 data-reveal style="--d:.1s">一笑<br />懸命。</h1>
-          <p class="sub" data-reveal style="--d:.2s"><b>MISSION</b>若者に選択肢を提供し、希望や可能性を届ける。</p>
-          <div class="btns" data-reveal style="--d:.3s">
-            <a class="btn btn-primary" href="/business/">事業を見る</a>
-            <a class="btn btn-secondary" href="/about/">私たちについて</a>
-          </div>
+          <p class="eyebrow">OUR BUSINESS</p>
+          <h2 class="h-xl" style="margin-top:20px">4つの領域で、<br />選択肢を広げる。</h2>
+        </div>
+        <div>
+          <p class="lead">教育、宿泊・体験、サステナビリティ、IT・デジタル。自社事業を通じて、人の可能性を広げます。</p>
+          <a class="btn btn-secondary" href="/business/">事業を見る <span aria-hidden="true">→</span></a>
         </div>
       </div>
-    </div>
-    <div class="scroll-hint" aria-hidden="true">SCROLL</div>
-  </section>
-
-  <section class="section" id="philosophy">
-    <div class="wrap">
-      <div class="glass mission-panel" data-reveal>
-        <div class="orb glow" style="width:70%;aspect-ratio:1;left:-20%;top:-40%" data-speed="0.03" aria-hidden="true"></div>
-        <div class="above">
-          <p class="eyebrow">PHILOSOPHY</p>
-          <p class="mega grad" style="margin-top:12px">一笑懸命。</p>
-          <p class="m">若者に選択肢を提供し、希望や可能性を届ける。</p>
-          <a class="btn btn-primary" href="/philosophy/">理念を詳しく見る</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="business" style="padding-top:0">
-    <div class="wrap">
-      <div data-reveal style="margin-bottom:48px">
-        <p class="eyebrow">BUSINESS</p>
-        <h2 class="h-xl" style="margin-top:12px">4つの領域で、<br />選択肢を広げる。</h2>
-      </div>
-      <div class="cards">
-        {domains.map((d, i) => (
-          <a class="pcard" href={`/business/#${d.id}`} data-reveal style={`--d:${(i % 2) * 0.12}s`}>
-            <img src={d.photo} alt="" loading="lazy" width="1200" height="900" />
-            <div class="info">
-              <div class="ja">{d.ja}</div>
-              <div class="en">{d.en}</div>
-              <p>{d.lead}</p>
-            </div>
-          </a>
-        ))}
-      </div>
-      <div class="btns" style="margin-top:40px"><a class="btn btn-text" href="/business/">すべての事業を見る →</a></div>
-    </div>
-  </section>
-
-  <section class="section" id="about" style="padding-top:0">
-    <div class="wrap">
-      <div class="glass panel" data-reveal>
-        <p class="eyebrow">ABOUT</p>
-        <h2 class="h-xl" style="margin:12px 0 20px">2019年から、<br />光をつなぐ。</h2>
-        <p class="lead">株式会社Rays linkは2019年1月11日に創業。東京・代々木を拠点に、金融教育から宿泊、IT・デジタルまで、事業の幅を広げてきました。</p>
-        <ul class="htl" aria-label="会社沿革">
-          {history.map((h) => (
-            <li class="glass"><div class="y">{h.year}</div>{h.items.map((t) => <p>{t}</p>)}</li>
+      <div>
+        <div class="cards">
+          {domains.map((d, i) => (
+            <a class="pcard" href={`/business/#${d.id}`} data-reveal style={`--d:${i * 0.08}s`}>
+              <img src={d.photo} alt="" loading="lazy" width="900" height="1100" />
+              <div class="info">
+                <div class="ja">{d.ja}</div>
+                <div class="en">{d.en}</div>
+                <p>{d.lead}</p>
+              </div>
+            </a>
           ))}
-        </ul>
-        <a class="btn btn-primary" href="/about/">会社概要を見る</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:0">
-    <div class="wrap">
-      <div class="glass cpanel" data-reveal>
-        <div class="orb glow" style="width:60%;aspect-ratio:1;right:-15%;bottom:-40%" data-speed="-0.03" aria-hidden="true"></div>
-        <div class="above">
-          <p class="eyebrow">CONTACT</p>
-          <h2 class="mega" style="margin:12px 0 20px;font-size:clamp(3rem,10vw,8rem)">話そう、<br />一緒に。</h2>
-          <p class="lead" style="margin-bottom:32px">事業・サービス、提携・協業、取材など、お気軽にご連絡ください。</p>
-          <a class="btn btn-primary" href="/contact/">お問い合わせ</a>
         </div>
       </div>
     </div>
   </section>
+  <Curve from="navy" to="beige" variant="4" />
+
+  <section class="bg-beige" id="about" style="padding-bottom:clamp(30px,5vw,60px)">
+    <div class="wrap">
+      <div class="about-top" data-reveal>
+        <div>
+          <p class="eyebrow">ABOUT US</p>
+          <h2 class="h-xl" style="margin-top:20px">Rays link について</h2>
+        </div>
+        <div>
+          <p class="lead">2019年1月11日に創業。東京・代々木を拠点に、金融教育から宿泊、IT・デジタルまで、事業の幅を広げてきました。</p>
+          <div class="btns" style="margin-top:26px"><a class="btn btn-secondary" href="/about/">会社情報を見る <span aria-hidden="true">→</span></a></div>
+        </div>
+      </div>
+      <ul class="htl" aria-label="会社沿革">
+        {history.map((h) => (
+          <li class="matte"><div class="y">{h.year}</div>{h.items.map((t) => <p>{t}</p>)}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <Curve from="beige" to="navy" variant="1" />
+
+  <section class="bg-navy cta-sec" style="padding-top:clamp(20px,4vw,50px);padding-bottom:clamp(60px,9vw,120px)">
+    <div class="wrap" data-reveal>
+      <p class="eyebrow">CONTACT</p>
+      <h2 class="mega" style="margin-top:18px">話そう、<br />一緒に。</h2>
+      <p class="lead">事業・サービス、提携・協業、取材など、お気軽にご連絡ください。</p>
+      <a class="btn btn-primary" href="/contact/">お問い合わせ <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+  <Curve from="navy" to="ivory" variant="2" />
 </Base>

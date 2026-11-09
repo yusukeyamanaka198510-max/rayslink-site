@@ -1,33 +1,31 @@
 ---
 import Base from '../layouts/Base.astro';
+import Curve from '../components/Curve.astro';
 import { domains, partners } from '../data/business';
 ---
 <Base title="BUSINESS" path="/business/" description="株式会社Rays linkの事業紹介。Education・Hospitality・Sustainability・Technologyの4領域と、提携事業(PARTNERSHIP BUSINESS)をご紹介します。">
   <section class="phero">
-    <div class="bg-layer" aria-hidden="true">
-      <div class="orb glow" style="width:60vw;aspect-ratio:1;right:-15vw;top:-15vw" data-speed="-0.05"></div>
-    </div>
-    <div class="wrap above">
+    <div class="wrap">
       <p class="eyebrow" data-reveal>BUSINESS</p>
-      <h1 class="mega" style="margin-top:16px" data-reveal>4つの領域。</h1>
-      <p class="lead" style="margin-top:24px;max-width:34em" data-reveal>教育、宿泊・体験、サステナビリティ、IT・デジタル。Rays linkが手がける自社事業をご紹介します。</p>
+      <h1 class="mega" style="margin-top:18px"><span class="line-in"><span>4つの領域。</span></span></h1>
+      <p class="lead" style="margin-top:24px;max-width:32em" data-reveal>教育、宿泊・体験、サステナビリティ、IT・デジタル。Rays linkが手がける自社事業をご紹介します。</p>
     </div>
   </section>
 
-  {domains.map((d) => (
-    <section class="bsec" id={d.id}>
+  {domains.map((d, i) => (
+    <section class={`bsec ${i % 2 ? 'flip' : ''} ${i % 2 ? 'bg-ivory' : 'bg-beige'}`} id={d.id}>
       <div class="wrap">
         <div class="brow">
           <div class="bphoto" data-reveal>
-            <img src={d.photo} alt={d.photoPlaceholder ? `${d.en}のイメージ（仮画像）` : `${d.en}の写真`} loading="lazy" width="1200" height="900" />
+            <img src={d.photo} alt={d.photoPlaceholder ? `${d.en}のイメージ（仮画像）` : `${d.en}の写真`} loading="lazy" width="900" height="1100" />
             {d.photoPlaceholder && <span class="tag">仮画像</span>}
           </div>
           <div>
             <p class="eyebrow" data-reveal>{d.ja}</p>
-            <h2 class="en grad" data-reveal>{d.en}</h2>
+            <h2 class="en" data-reveal>{d.en}</h2>
             <p class="lead" style="margin-top:8px" data-reveal>{d.lead}</p>
             {d.services.map((s) => (
-              <article class="svc glass" data-reveal>
+              <article class="svc matte" data-reveal>
                 <p class="k">{s.kind}{s.since ? `｜${s.since}` : ''}</p>
                 <h3>{s.name}</h3>
                 <p>{s.desc}</p>
@@ -39,24 +37,24 @@ import { domains, partners } from '../data/business';
       </div>
     </section>
   ))}
+  <Curve from="beige" to="navy" variant="2" />
 
-  <section class="section" id="partnership">
+  <section class="bg-navy" id="partnership" style="padding-bottom:clamp(60px,9vw,120px)">
     <div class="wrap">
-      <div class="partner" data-reveal>
-        <span class="badge">PARTNERSHIP BUSINESS</span>
-        <h2 class="h-xl" style="margin-top:20px">提携事業</h2>
-        <p class="lead" style="margin-top:12px">以下はRays link単独の事業ではなく、提携・協業先とともに取り組む事業です。</p>
-        <div class="pgrid">
-          {partners.map((p) => (
-            <article class="glass svc" style="margin:0">
-              <p class="k">{p.kind}</p>
-              <h3>{p.name}</h3>
-              <p>{p.desc}</p>
-            </article>
-          ))}
-        </div>
+      <span class="badge" data-reveal>PARTNERSHIP BUSINESS</span>
+      <h2 class="h-xl" style="margin-top:20px" data-reveal>提携事業</h2>
+      <p class="lead" style="margin-top:12px" data-reveal>以下はRays link単独の事業ではなく、提携・協業先とともに取り組む事業です。</p>
+      <div class="pgrid">
+        {partners.map((p) => (
+          <article class="matte svc" data-reveal>
+            <p class="k">{p.kind}</p>
+            <h3>{p.name}</h3>
+            <p>{p.desc}</p>
+          </article>
+        ))}
       </div>
-      <div class="btns" style="margin-top:48px"><a class="btn btn-primary" href="/contact/">事業・提携のご相談</a><a class="btn btn-text" href="/about/">会社概要へ →</a></div>
+      <div class="btns" style="margin-top:44px"><a class="btn btn-primary" href="/contact/">事業・提携のご相談 <span aria-hidden="true">→</span></a><a class="btn btn-text" href="/about/">会社概要へ →</a></div>
     </div>
   </section>
+  <Curve from="navy" to="ivory" variant="3" />
 </Base>
