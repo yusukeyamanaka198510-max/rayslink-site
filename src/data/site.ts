@@ -12,10 +12,10 @@ export const company = {
 };
 
 export const nav = [
-  { href: '/', label: 'TOP' },
-  { href: '/philosophy/', label: 'PHILOSOPHY' },
-  { href: '/business/', label: 'BUSINESS' },
-  { href: '/about/', label: 'ABOUT' },
+  { href: '/', label: 'トップ', en: 'TOP' },
+  { href: '/philosophy/', label: '企業理念', en: 'PHILOSOPHY' },
+  { href: '/business/', label: '事業内容', en: 'BUSINESS' },
+  { href: '/about/', label: '会社概要', en: 'ABOUT' },
 ];
 
 export const history = [

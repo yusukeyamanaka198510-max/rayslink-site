@@ -8,14 +8,14 @@ const cur = (h: string) => (h === '/' ? path === '/' : path.startsWith(h));
   <nav aria-label="メイン">
     <ul>
       {nav.map((n) => <li><a href={n.href} aria-current={cur(n.href) ? 'page' : undefined}>{n.label}</a></li>)}
-      <li><a class="cta" href="/contact/" aria-current={cur('/contact/') ? 'page' : undefined}>CONTACT</a></li>
+      <li><a class="cta" href="/contact/" aria-current={cur('/contact/') ? 'page' : undefined}>お問い合わせ</a></li>
     </ul>
   </nav>
   <button class="burger" id="burger" aria-expanded="false" aria-controls="mmenu" aria-label="メニューを開く"><span></span><span></span><span></span></button>
 </header>
 <div class="mmenu" id="mmenu" aria-hidden="true">
   <div class="glass">
-    {nav.map((n) => <a href={n.href}>{n.label}<span aria-hidden="true">→</span></a>)}
-    <a class="cta" href="/contact/">CONTACT</a>
+    {nav.map((n) => <a href={n.href}>{n.label}<span aria-hidden="true" class="en">{n.en}</span></a>)}
+    <a class="cta" href="/contact/">お問い合わせ<span aria-hidden="true" class="en">CONTACT</span></a>
   </div>
 </div>

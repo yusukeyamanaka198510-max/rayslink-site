@@ -75,7 +75,7 @@ section{position:relative}
 .header.scrolled{box-shadow:0 1px 0 rgba(255,255,255,.65) inset,0 16px 32px -16px rgba(20,37,59,.4)}
 .header .logo img{height:30px;width:auto}
 .header nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;align-items:center}
-.header nav a{display:block;padding:10px 16px;border-radius:999px;font-weight:700;font-size:.78rem;letter-spacing:.12em;text-decoration:none;transition:background .25s}
+.header nav a{display:block;padding:10px 16px;border-radius:999px;font-weight:700;font-size:.86rem;letter-spacing:.06em;text-decoration:none;transition:background .25s}
 .header nav a:hover,.header nav a[aria-current=page]{background:var(--beige)}
 .header nav a.cta{background:var(--navy);color:var(--light)}
 .header nav a.cta:hover{background:var(--navy-2)}
@@ -89,6 +89,8 @@ section{position:relative}
 .mmenu.open{display:block}
 .mmenu .matte{padding:24px 28px;display:grid;gap:2px;background:var(--ivory)}
 .mmenu a{display:flex;justify-content:space-between;align-items:center;padding:18px 4px;font-weight:800;font-size:1.3rem;text-decoration:none;border-bottom:1px solid var(--line)}
+.mmenu a .en{font-size:.7rem;letter-spacing:.18em;font-weight:700;color:var(--sub)}
+.mmenu a.cta .en{color:var(--light);opacity:.75;margin-left:10px}
 .mmenu a.cta{margin-top:16px;background:var(--navy);color:var(--light);border-radius:999px;justify-content:center;border:0}
 @media (max-width:900px){.header nav{display:none}.burger{display:block}.header{padding:8px 8px 8px 20px}}
 
@@ -152,7 +154,7 @@ section{position:relative}
 @media (max-width:560px){.cards{grid-template-columns:1fr}.pcard{aspect-ratio:4/3.6}}
 
 /* ABOUT(TOP) */
-.about-top{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(24px,5vw,80px);align-items:end}
+.about-top{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(24px,5vw,80px);align-items:start}
 .htl{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:54px var(--gutter) 22px;margin:clamp(32px,5vw,56px) calc(var(--gutter)*-1) 0;position:relative;scrollbar-width:thin}
 .htl::before{content:"";position:absolute;left:var(--gutter);right:var(--gutter);top:32px;height:2px;background:var(--navy);opacity:.55}
 .htl li{flex:0 0 min(270px,78vw);scroll-snap-align:start;list-style:none;position:relative;padding:22px 22px 24px}
@@ -283,3 +285,10 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .hero .jp .what,.hero .jp .name+p{margin:0}
 .hero .jp .what,.hero .jp p{word-break:auto-phrase}
 @media (max-width:560px){.kicker>span[aria-hidden]{display:none}.kicker{flex-direction:column;gap:0}}
+
+/* 会社の基本情報（TOP） */
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:0 28px;margin:26px 0 0}
+.facts div{display:grid;grid-template-columns:6.2em 1fr;gap:10px;padding:13px 0;border-bottom:1px solid var(--line)}
+.facts dt{font-weight:800;font-size:.8rem;letter-spacing:.1em;color:var(--sub)}
+.facts dd{margin:0;font-weight:600;font-size:.94rem;line-height:1.7}
+@media (max-width:640px){.facts{grid-template-columns:1fr}}
