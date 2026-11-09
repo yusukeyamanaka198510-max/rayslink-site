@@ -1,7 +1,7 @@
 # 株式会社Rays link 公式サイト（Astro + TypeScript）
 ```bash
 npm install && npm run dev      # 開発
-npm run build && npm start      # 本番（Node。/api/contact のため adapter 使用）
+npm run build                  # Vercel にデプロイ（@astrojs/vercel。/api/contact はサーバーレス関数）
 ```
 環境変数は `.env.example` を参照。
 

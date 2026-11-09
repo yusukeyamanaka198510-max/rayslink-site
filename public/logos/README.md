@@ -1,4 +1,6 @@
-# ロゴ素材（仮）
-このフォルダのSVGは **仮素材** です。提供済みの公式ロゴ5点が確認でき次第、同名ファイルで差し替えてください（変形・描き直し禁止）。
-- logo-horizontal.svg … 明るい背景用の横組みロゴ（ヘッダー/フッター）
-- logo-horizontal-white.svg … 暗い背景用
+# ロゴ素材
+提供された公式ロゴ（原本は `design-assets/logos-original/`）。
+- logo-horizontal-black.png … 横組み・黒（白背景を透過処理。形状は原本どおり）
+- logo-vertical-black.png … 縦組み・黒（同上）
+- logo-vertical-navy.png / logo-vertical-white.png … 提供原本のまま
+- logo-horizontal-white.png … **暫定**。提供の「横・白」は全面白で形が無かったため、横・黒の形状から白に色替えして生成。正しい原本が入手できたら差し替える。

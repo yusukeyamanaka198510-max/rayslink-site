@@ -27,9 +27,9 @@ export const history = [
   { date: '2026年10月', year: '2026.10', items: ['ランダムビデオチャットサービス「CROSS TALK」開始'] },
 ];
 
-// 公式ロゴのパス（ここだけ書き換えれば全体に反映）。現在は仮SVG。
-// 提供ロゴ5点（縦・黒／横・黒／縦・ネイビー／横・白／縦・白）を public/logos/ に置き、パスを更新する。
+// 公式ロゴのパス（ここだけ書き換えれば全体に反映）。
 export const logos = {
-  horizontal: '/logos/logo-horizontal.svg',       // 明るい背景用の横組み（ヘッダー・フッター）
-  horizontalWhite: '/logos/logo-horizontal-white.svg', // 暗い背景用の横組み
+  horizontal: '/logos/logo-horizontal-black.png', // 明るい背景用の横組み（ヘッダー・フッター）
+  horizontalWhite: '/logos/logo-horizontal-white.png', // 暗い背景用（暫定生成。README参照）
+  verticalNavy: '/logos/logo-vertical-navy.png',
 };
