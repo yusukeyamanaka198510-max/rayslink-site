@@ -199,7 +199,7 @@ section{position:relative}
 .bg-navy .chips li{border-color:var(--line-on-navy)}
 @media (max-width:860px){.brow{grid-template-columns:1fr}.bsec.flip .brow{direction:ltr}.bphoto{aspect-ratio:4/3.4}}
 .badge{display:inline-block;background:var(--beige);color:var(--navy);font-weight:800;font-size:.74rem;letter-spacing:.22em;padding:6px 16px;border-radius:999px}
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:32px}
 .pgrid .svc{margin:0}
 @media (max-width:860px){.pgrid{grid-template-columns:1fr}}
 
@@ -292,3 +292,7 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .facts dt{font-weight:800;font-size:.8rem;letter-spacing:.1em;color:var(--sub)}
 .facts dd{margin:0;font-weight:600;font-size:.94rem;line-height:1.7}
 @media (max-width:640px){.facts{grid-template-columns:1fr}}
+
+.svc .ext{margin-top:14px}
+.svc .ext .btn{font-size:.88rem;min-height:36px;color:inherit}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
