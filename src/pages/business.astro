@@ -8,7 +8,7 @@ import { domains, partners } from '../data/business';
     <div class="wrap">
       <p class="eyebrow" data-reveal>事業内容 / BUSINESS</p>
       <h1 class="mega" style="margin-top:18px"><span class="line-in"><span>事業内容。</span></span></h1>
-      <p class="lead" style="margin-top:24px;max-width:32em" data-reveal>教育、宿泊・体験、サステナビリティ、IT・デジタルの4領域で展開する自社事業と、提携先とともに取り組む提携事業をご紹介します。</p>
+      <p class="lead" style="margin-top:24px;max-width:32em" data-reveal>教育、宿泊、サステナビリティ、IT・デジタルの4領域で展開する自社事業と、提携先とともに取り組む提携事業をご紹介します。</p>
     </div>
   </section>
 
@@ -30,6 +30,7 @@ import { domains, partners } from '../data/business';
                 <h3>{s.name}</h3>
                 <p>{s.desc}</p>
                 <ul class="chips">{s.features.map((f) => <li>{f}</li>)}</ul>
+                {s.url && <p class="ext"><a class="btn btn-text" href={s.url} target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="sr-only">（外部サイトが新しいタブで開きます）</span></a></p>}
               </article>
             ))}
           </div>
@@ -50,6 +51,7 @@ import { domains, partners } from '../data/business';
             <p class="k">{p.kind}</p>
             <h3>{p.name}</h3>
             <p>{p.desc}</p>
+            {p.url && <p class="ext"><a class="btn btn-text" href={p.url} target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="sr-only">（外部サイトが新しいタブで開きます）</span></a></p>}
           </article>
         ))}
       </div>
