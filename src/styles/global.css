@@ -235,3 +235,12 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--blue);border-col
   *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
   [data-reveal]{opacity:1;transform:none}
 }
+
+/* --- 表示修正 --- */
+.bsec .en,.grad{padding-bottom:.12em}            /* background-clip:text で下端(y,g等)が欠けるのを防ぐ */
+.bsec .en{line-height:1.12}
+.req,.opt{white-space:nowrap;display:inline-block}  /* 「必須」バッジの折り返し防止 */
+.mega,.h-xl,.h-lg{text-wrap:balance}               /* 見出しの不自然な改行を軽減 */
+.phero{overflow-x:clip;overflow-y:visible}          /* 光が下端で四角く切れないように */
+.phero .bg-layer{overflow:visible}
+.phero .above{position:relative}
