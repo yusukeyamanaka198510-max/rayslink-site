@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import { company, history } from '../data/site';
+const rows = [
+  ['会社名', company.name], ['設立', company.founded], ['代表取締役', company.ceo],
+  ['所在地', `${company.zip} ${company.address}`], ['資本金', company.capital],
+  ['電話', company.tel], ['法人番号', company.corpNo],
+];
+---
+<Base title="ABOUT" path="/about/" description="株式会社Rays linkの会社概要と沿革。2019年1月11日創業、東京都渋谷区代々木に所在。">
+  <section class="phero">
+    <div class="bg-layer" aria-hidden="true"><div class="orb glow" style="width:60vw;aspect-ratio:1;right:-15vw;top:-15vw" data-speed="-0.05"></div></div>
+    <div class="wrap above">
+      <p class="eyebrow" data-reveal>ABOUT</p>
+      <h1 class="mega" style="margin-top:16px" data-reveal>会社概要。</h1>
+    </div>
+  </section>
+  <section class="section" style="padding-top:20px">
+    <div class="wrap">
+      <div class="glass panel" data-reveal>
+        <dl class="profile" style="margin:0">
+          {rows.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+        </dl>
+      </div>
+    </div>
+  </section>
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>HISTORY</p>
+      <h2 class="h-xl" style="margin-top:12px" data-reveal>沿革</h2>
+      <div class="vtl">
+        <div class="track" aria-hidden="true"><div class="fill"></div></div>
+        {history.map((h) => (
+          <div class="vitem">
+            <div><div class="y">{h.year.split('.')[0]}</div><div class="d">{h.date}</div></div>
+            <ul>{h.items.map((t) => <li class="glass">{t}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+      <div class="btns" style="margin-top:32px"><a class="btn btn-primary" href="/contact/">お問い合わせ</a></div>
+    </div>
+  </section>
+</Base>

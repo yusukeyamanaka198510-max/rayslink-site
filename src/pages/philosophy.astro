@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+const items = [
+  { tag: 'MISSION', t: '若者に選択肢を提供し、希望や可能性を届ける。', r: false },
+  { tag: 'VISION', t: '一人ひとりが光を放ち、その光が社会を照らす。', r: true },
+  { tag: 'VALUE', t: 'Be Rays — 自ら輝き、周囲を照らす存在であれ。', r: false },
+];
+const kw = ['一笑懸命', '笑いながら全力疾走', '希望主義', 'Link the Future', '遊び心 × 本気'];
+---
+<Base title="PHILOSOPHY" path="/philosophy/" description="株式会社Rays linkの企業理念「一笑懸命。」と、MISSION・VISION・VALUE、大切にする価値観をご紹介します。">
+  <section class="phero">
+    <div class="bg-layer" aria-hidden="true">
+      <div class="orb glow" style="width:70vw;aspect-ratio:1;right:-20vw;top:-20vw" data-speed="-0.05"></div>
+      <div class="ring-wrap" data-speed="0.05" style="position:absolute;inset:0"><div class="ring ring-a float" style="top:20%;opacity:.6"></div></div>
+    </div>
+    <div class="wrap above">
+      <p class="eyebrow" data-reveal>PHILOSOPHY</p>
+      <h1 class="mega" style="margin-top:16px" data-reveal>一笑<br />懸命。</h1>
+      <p class="lead" style="margin-top:28px;max-width:34em" data-reveal>笑いながら、全力で。私たちは「一笑懸命」を企業理念に、若者の未来に光を届けます。</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:40px">
+    <div class="bg-layer" aria-hidden="true">
+      <div class="orb glow" style="width:50vw;aspect-ratio:1;left:-15vw;top:10%" data-speed="0.04"></div>
+      <div class="orb glow" style="width:50vw;aspect-ratio:1;right:-15vw;top:60%" data-speed="-0.03"></div>
+    </div>
+    <div class="wrap above" style="display:grid;gap:clamp(24px,4vw,48px)">
+      {items.map((i) => (
+        <div class={`glass vpanel ${i.r ? 'r' : ''}`} data-reveal>
+          <p class="tag">{i.tag}</p>
+          <p class="t">{i.t}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>KEYWORDS</p>
+      <h2 class="h-xl" style="margin-top:12px" data-reveal>大切にしている価値観</h2>
+      <ul class="kw">
+        {kw.map((k, n) => <li class="glass" data-reveal style={`--d:${n * 0.08}s`}>{k}</li>)}
+      </ul>
+      <div class="glass panel cta-band" data-reveal>
+        <p class="h-lg">理念を、事業と会社のかたちで。</p>
+        <div class="btns" style="margin-top:24px">
+          <a class="btn btn-primary" href="/business/">BUSINESS</a>
+          <a class="btn btn-secondary" href="/about/">ABOUT</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
