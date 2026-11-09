@@ -20,7 +20,7 @@ addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 
 // フェードイン
 const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
-document.querySelectorAll('[data-reveal],.vitem').forEach((el) => io.observe(el));
+document.querySelectorAll('[data-reveal],.vitem,.line-in').forEach((el) => io.observe(el));
 
 // 円・光のパララックス（transformのみ）
 const px = [...document.querySelectorAll<HTMLElement>('[data-speed]')];
@@ -31,8 +31,12 @@ const frame = () => {
   ticking = false;
   onScroll();
   if (!reduce) px.forEach((el) => {
+    // 要素の親が画面中央からどれだけずれているかに比例して、ゆっくり動かす（transformのみ）
     const s = parseFloat(el.dataset.speed || '0');
-    el.style.transform = `translate3d(0,${(scrollY * s).toFixed(1)}px,0)`;
+    const r = (el.parentElement || el).getBoundingClientRect();
+    if (r.bottom < -200 || r.top > innerHeight + 200) return;
+    const off = r.top + r.height / 2 - innerHeight / 2;
+    el.style.transform = `translate3d(0,${(off * s).toFixed(1)}px,0)`;
   });
   if (vtl) {
     const r = vtl.getBoundingClientRect();

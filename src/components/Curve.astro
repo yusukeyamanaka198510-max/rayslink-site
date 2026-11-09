@@ -1,0 +1,14 @@
+---
+// セクション間の大きな緩い曲線。from=上のセクション色, to=下のセクション色。variantで形を変えて繰り返しを避ける。
+interface Props { from: 'beige' | 'ivory' | 'navy'; to: 'beige' | 'ivory' | 'navy'; variant?: 1 | 2 | 3 | 4 | '1' | '2' | '3' | '4'; over?: boolean }
+const { from, to, variant = 1, over = false } = Astro.props;
+const paths: Record<number, string> = {
+  1: 'M0,130 C260,40 540,170 840,110 C1110,58 1290,30 1440,70 L1440,260 L0,260Z',
+  2: 'M0,50 C320,150 600,10 920,90 C1180,150 1320,110 1440,40 L1440,260 L0,260Z',
+  3: 'M0,100 C200,20 470,50 760,125 C1050,200 1260,150 1440,60 L1440,260 L0,260Z',
+  4: 'M0,70 C260,10 520,110 800,70 C1080,30 1260,90 1440,130 L1440,260 L0,260Z',
+};
+---
+<div class={`curve from-${from} to-${to}${over ? ' over' : ''}`} aria-hidden="true">
+  <svg viewBox="0 0 1440 200" preserveAspectRatio="none"><path d={paths[Number(variant)]} /></svg>
+</div>
