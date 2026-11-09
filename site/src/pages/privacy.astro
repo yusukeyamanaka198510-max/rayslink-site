@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { company } from '../data/site';
+---
+<Base title="プライバシーポリシー" path="/privacy/" noindex description="株式会社Rays linkのプライバシーポリシー（ドラフト）。">
+  <section class="phero"><div class="wrap above"><p class="eyebrow">PRIVACY POLICY</p><h1 class="h-xl" style="margin-top:12px">プライバシーポリシー</h1></div></section>
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="glass panel doc">
+        <p class="notice">【公開前に要確認】本ページは仮のドラフトです。法務確認のうえ、正式な文面に差し替えてください。</p>
+        <h2>1. 取得する情報</h2><p>お問い合わせフォームを通じて、お名前、メールアドレス、お問い合わせ内容、会社名・団体名、電話番号を取得します。</p>
+        <h2>2. 利用目的</h2><p>お問い合わせへの回答・ご連絡、およびその記録のために利用します。</p>
+        <h2>3. 第三者提供・委託</h2><p>法令に基づく場合を除き、本人の同意なく第三者へ提供しません。メール送信等の業務は、外部サービスに委託する場合があります。【委託先・保存期間は確定後に記載】</p>
+        <h2>4. お問い合わせ窓口</h2><p>{company.name}<br />{company.zip} {company.address}<br />TEL {company.tel}</p>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="仮画像（差し替え予定）">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dcfce7"/><stop offset="1" stop-color="#7dd3fc"/></linearGradient></defs>
+<rect width="1200" height="900" fill="url(#g)"/>
+<circle cx="380" cy="420" r="300" fill="#fff" fill-opacity=".35"/><circle cx="760" cy="520" r="300" fill="#fff" fill-opacity=".3"/>
+<text x="600" y="840" text-anchor="middle" font-family="sans-serif" font-size="30" letter-spacing="6" fill="#1e3a8a" fill-opacity=".7">PHOTO PLACEHOLDER — 差し替え予定</text></svg>

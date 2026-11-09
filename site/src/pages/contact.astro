@@ -1,0 +1,125 @@
+---
+import Base from '../layouts/Base.astro';
+const types = ['事業・サービス', '提携・協業', '取材・メディア', 'その他'];
+---
+<Base title="CONTACT" path="/contact/" description="株式会社Rays linkへのお問い合わせ。事業・サービス、提携・協業、取材・メディアなどのご相談を受け付けています。">
+  <section class="phero" style="padding-bottom:110px">
+    <div class="bg-layer" aria-hidden="true">
+      <div class="orb glow" style="width:70vw;aspect-ratio:1;left:-20vw;top:-10vw" data-speed="0.04"></div>
+      <div class="orb glow" style="width:60vw;aspect-ratio:1;right:-20vw;top:30%" data-speed="-0.04"></div>
+    </div>
+    <div class="wrap above" style="text-align:center">
+      <p class="eyebrow" data-reveal>CONTACT</p>
+      <h1 class="mega" style="margin-top:16px" data-reveal>話そう、一緒に。</h1>
+      <p class="lead" style="margin-top:20px">以下のフォームよりお問い合わせください。</p>
+    </div>
+    <div class="wrap above" style="margin-top:48px">
+      <div class="glass form-panel" id="cform-panel">
+        <ol class="steps" aria-label="進行状況">
+          <li class="on" data-s="1"><span>1</span>入力</li><li data-s="2"><span>2</span>内容確認</li><li data-s="3"><span>3</span>送信完了</li>
+        </ol>
+
+        <form id="cform" novalidate>
+          <div id="banner" role="alert" class="notice" hidden></div>
+          <div class="field"><label for="type">お問い合わせ種別<span class="req">必須</span></label>
+            <select id="type" name="type" required><option value="">選択してください</option>{types.map((t) => <option>{t}</option>)}</select><div class="err" data-err="type"></div></div>
+          <div class="field"><label for="name">お名前<span class="req">必須</span></label>
+            <input type="text" id="name" name="name" autocomplete="name" required /><div class="err" data-err="name"></div></div>
+          <div class="field"><label for="email">メールアドレス<span class="req">必須</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" required /><div class="err" data-err="email"></div></div>
+          <div class="field"><label for="message">お問い合わせ内容<span class="req">必須</span></label>
+            <textarea id="message" name="message" required maxlength="4000"></textarea><div class="err" data-err="message"></div></div>
+          <div class="field"><label for="company">会社名・団体名<span class="opt">任意</span></label>
+            <input type="text" id="company" name="company" autocomplete="organization" /></div>
+          <div class="field"><label for="tel">電話番号<span class="opt">任意</span></label>
+            <input type="tel" id="tel" name="tel" autocomplete="tel" /><div class="err" data-err="tel"></div></div>
+          <div class="hp" aria-hidden="true"><label>website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+          <div class="field"><label class="check"><input type="checkbox" id="agree" name="agree" required />
+            <span><a href="/privacy/" target="_blank" rel="noopener">プライバシーポリシー</a>に同意する<span class="req">必須</span></span></label><div class="err" data-err="agree"></div></div>
+          <div class="btns" style="justify-content:center"><button class="btn btn-primary" type="submit">内容を確認する</button></div>
+        </form>
+
+        <div id="confirm" class="confirm" hidden>
+          <h2 class="h-lg" style="margin-bottom:20px">入力内容のご確認</h2>
+          <div id="banner2" role="alert" class="notice" hidden></div>
+          <dl id="summary"></dl>
+          <div class="btns" style="justify-content:center">
+            <button class="btn btn-secondary" id="back" type="button">修正する</button>
+            <button class="btn btn-primary" id="send" type="button">送信する</button>
+          </div>
+        </div>
+
+        <div id="done" class="done" hidden>
+          <p class="h-lg">送信が完了しました。</p>
+          <p class="lead" style="margin:16px 0 28px">受付確認メールをお送りしました。担当者より順次ご連絡いたします。</p>
+          <a class="btn btn-secondary" href="/">TOPへ戻る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const form = $<HTMLFormElement>('cform'), confirmEl = $('confirm'), done = $('done');
+  const loadedAt = Date.now();
+  const labels: Record<string, string> = { type: 'お問い合わせ種別', name: 'お名前', email: 'メールアドレス', message: 'お問い合わせ内容', company: '会社名・団体名', tel: '電話番号' };
+  const msgs: Record<string, string> = { type: '種別を選択してください。', name: 'お名前を入力してください。', email: 'メールアドレスの形式が正しくありません。', message: 'お問い合わせ内容を入力してください（5文字以上）。', tel: '電話番号の形式が正しくありません。', agree: 'プライバシーポリシーへの同意が必要です。' };
+
+  const step = (n: number) => {
+    form.hidden = n !== 1; confirmEl.hidden = n !== 2; done.hidden = n !== 3;
+    document.querySelectorAll<HTMLElement>('.steps li').forEach((li) => li.classList.toggle('on', Number(li.dataset.s) <= n));
+    document.getElementById('cform-panel')!.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  const data = () => {
+    const f = new FormData(form);
+    const o: Record<string, any> = {};
+    ['type', 'name', 'email', 'message', 'company', 'tel', 'website'].forEach((k) => (o[k] = String(f.get(k) ?? '').trim()));
+    o.agree = ($<HTMLInputElement>('agree')).checked; o.t = loadedAt; return o;
+  };
+  const showErrors = (errs: Record<string, string>) => {
+    document.querySelectorAll<HTMLElement>('[data-err]').forEach((e) => (e.textContent = errs[e.dataset.err!] || ''));
+    form.querySelectorAll('[aria-invalid]').forEach((e) => e.removeAttribute('aria-invalid'));
+    Object.keys(errs).forEach((k) => document.getElementById(k)?.setAttribute('aria-invalid', 'true'));
+    (document.getElementById(Object.keys(errs)[0]) as HTMLElement | null)?.focus();
+  };
+  const validate = (d: Record<string, any>) => {
+    const e: Record<string, string> = {};
+    if (!d.type) e.type = msgs.type;
+    if (!d.name) e.name = msgs.name;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) e.email = msgs.email;
+    if (d.message.length < 5) e.message = msgs.message;
+    if (d.tel && !/^[0-9+\-()\s]{6,30}$/.test(d.tel)) e.tel = msgs.tel;
+    if (!d.agree) e.agree = msgs.agree;
+    return e;
+  };
+
+  form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    const d = data(), errs = validate(d); showErrors(errs);
+    if (Object.keys(errs).length) return;
+    const s = $('summary'); s.textContent = '';
+    Object.keys(labels).forEach((k) => {
+      if (!d[k]) return;
+      const row = document.createElement('div'), dt = document.createElement('dt'), dd = document.createElement('dd');
+      dt.textContent = labels[k]; dd.textContent = d[k]; row.append(dt, dd); s.append(row);
+    });
+    step(2);
+  });
+  $('back').addEventListener('click', () => step(1)); // 入力値はフォームに保持されたまま
+
+  $('send').addEventListener('click', async () => {
+    const btn = $<HTMLButtonElement>('send'), b = $('banner2'); b.hidden = true; btn.disabled = true; btn.textContent = '送信中…';
+    try {
+      const res = await fetch('/api/contact', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(data()) });
+      const j = await res.json().catch(() => ({}));
+      if (res.ok && j.ok) { form.reset(); step(3); return; }
+      if (res.status === 422 && j.errors) { step(1); showErrors(j.errors); return; }
+      b.textContent = j.error === 'not_configured' ? '現在、お問い合わせフォームは準備中のため送信できません。お手数ですがお電話（03-6300-9116）にてご連絡ください。'
+        : j.error === 'rate_limited' ? '送信回数の上限に達しました。しばらくしてからお試しください。'
+        : '送信に失敗しました。入力内容は保持されています。時間をおいて再度お試しください。';
+      b.hidden = false;
+    } catch { b.textContent = '通信に失敗しました。入力内容は保持されています。再度お試しください。'; b.hidden = false; }
+    finally { btn.disabled = false; btn.textContent = '送信する'; }
+  });
+</script>

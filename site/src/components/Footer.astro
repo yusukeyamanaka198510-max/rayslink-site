@@ -1,0 +1,28 @@
+---
+import { nav, logos, company } from '../data/site';
+---
+<footer class="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <img src={logos.horizontal} alt="Rays link" width="160" height="34" loading="lazy" />
+        <p style="font-weight:800;font-size:1.3rem">一笑懸命。</p>
+      </div>
+      <div>
+        <h3>MENU</h3>
+        <ul>
+          {nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+          <li><a href="/contact/">CONTACT</a></li>
+          <li><a href="/privacy/">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>COMPANY</h3>
+        <address>
+          {company.name}<br />{company.zip} {company.address}<br />TEL {company.tel}
+        </address>
+      </div>
+    </div>
+    <small>© {new Date().getFullYear()} {company.name}</small>
+  </div>
+</footer>
