@@ -9,10 +9,10 @@ export const domains: Domain[] = [
     photo: '/images/biz-education.webp', photoPlaceholder: false, // 提供・生成のイメージ画像（TOPの事業内容カードと事業内容ページで共通）
     services: [
       { name: 'EMI academy', kind: '20歳以上に向けた総合金融教育コミュニティ', since: '2019年1月〜',
-        desc: '将来の不安から投資、就職・転職の疑問まで、お金の悩みを専用プログラムと会員限定の動画で学べる伴走型コミュニティ。個人面談や交流会も開催します。',
+        desc: 'お金の悩みを、専用プログラムと会員限定の動画で学べる伴走型コミュニティ。',
         url: 'https://www.emi-academy.jp/free' },
       { name: '親子で学べるお金の学校', kind: '4歳から始める子供向けの金融教育オンラインサロン', since: '2019年1月〜',
-        desc: 'こどもNISAや英国式学習など、近年重視される金融教育を、子どもにも分かりやすく楽しく学べるオンラインサロン。家族で学習の時間を共有できます。',
+        desc: '子どもにも分かりやすく、楽しく学べる金融教育のオンラインサロン。',
         url: 'https://community.camp-fire.jp/projects/view/509437' },
     ],
   },
@@ -21,7 +21,7 @@ export const domains: Domain[] = [
     photo: '/images/biz-hospitality.webp', photoPlaceholder: false, // 提供・生成のイメージ画像（TOPの事業内容カードと事業内容ページで共通）
     services: [
       { name: 'The Villa Lino', kind: 'ホテル事業｜沖縄県読谷村', since: '2025年2月開業',
-        desc: '沖縄県読谷村の1日1組限定のヴィラ。広いリビングとシービュー、充実したキッチン設備。お子様が騒いでも気兼ねなく過ごせます。',
+        desc: '沖縄県読谷村の1日1組限定のヴィラ。広いリビングとシービューが魅力。',
         url: 'https://www.booking.com/hotel/jp/the-villa-lino.ja.html' },
     ],
   },
@@ -30,7 +30,7 @@ export const domains: Domain[] = [
     photo: '/images/biz-sustainability.webp', photoPlaceholder: false, // 提供・生成のイメージ画像（TOPの事業内容カードと事業内容ページで共通）
     services: [
       { name: 'K-shot 関東支部', kind: 'ゴルフボール回収事業', since: '2025年7月開業',
-        desc: 'ゴルフ場の池や山林に放置されたボールを回収する事業。日本最多級のロストボール数を抱えるK-shotの関東支部として、水質汚染や生態系の破壊を防ぎます。',
+        desc: 'ゴルフ場の池や山林のボールを回収し、水質汚染や生態系の破壊を防ぎます。',
         url: 'https://k-shot1.com/' },
     ],
   },
@@ -39,10 +39,10 @@ export const domains: Domain[] = [
     photo: '/images/biz-technology.webp', photoPlaceholder: false, // 提供・生成のイメージ画像（TOPの事業内容カードと事業内容ページで共通）
     services: [
       { name: 'CROSS TALK', kind: 'ランダムビデオチャットサービス', since: '2026年10月開始',
-        desc: '「日本のこと」を共通の話題に、世界中の人とリモートで話せるサービス。英語を軸に、英語力とコミュニケーション能力の向上をめざします。',
+        desc: '「日本のこと」を話題に、世界中の人とリモートで話せるサービス。',
         url: 'https://www.cross-talk.jp/' },
       { name: 'Web・システム関連', kind: 'HP・LP制作、Webシステム、Webアプリの開発、委託制作',
-        desc: 'HP・LP制作、Webシステム、Webアプリの開発・委託制作。超短期納品を前提に、お客様の「仕事の悩み」全体を網羅的にサポートします。', },
+        desc: 'HP・LP制作、Webシステム・アプリの開発、委託制作。超短期納品が前提です。', },
     ],
   },
 ];
@@ -51,9 +51,9 @@ export type Partner = { name: string; kind: string; desc: string; url?: string }
 // 提携事業：Rays link単独の事業ではない。「PARTNERSHIP BUSINESS」として独立表示する。
 export const partners: Partner[] = [
   { name: 'ジブキャリ', kind: 'キャリアカウンセリング事業｜他企業との業務提携（人材提供）',
-    desc: '就職・転職をサポートするキャリアカウンセリング。丁寧なヒアリングで方向性を明確にし、エントリーから面接対策まで伴走します。',
+    desc: '就職・転職を、丁寧なヒアリングから面接対策まで、伴走して支えます。',
     url: 'https://jibuncareer.com/' },
   { name: 'エネルギー事業', kind: '他企業との業務提携（人材提供）',
-    desc: '太陽光パネル、蓄電池、エコキュートの販売・サポート。東海から北陸地区を対象に、丁寧な事前説明で安心の導入を支援します。',
+    desc: '太陽光パネル、蓄電池、エコキュートの販売・サポート。東海〜北陸地区が対象です。',
     url: 'https://eikop.com/company/' },
 ];
