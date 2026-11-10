@@ -479,3 +479,9 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 @media (min-width:861px){
   .biz--bleed .seg-photo{right:calc(50% - 50vw);width:min(56vw,860px)}
 }
+
+/* 案A：文字（点・見出し・説明・ボタン）も画面の左端側から始める。左右の余白だけ残し、中央の最大幅の制限を外す。biz--bleed を外すと案B（中央の幅の中） */
+.biz--bleed>.wrap{max-width:none}
+.biz--bleed .seg-text{max-width:min(620px,48%)}
+.biz--bleed .biz-head{max-width:none}
+@media (max-width:860px){.biz--bleed .seg-text{max-width:none}}
