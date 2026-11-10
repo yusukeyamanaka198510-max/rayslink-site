@@ -447,3 +447,7 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .bphoto img[src*="biz-hospitality"]{object-position:50% 50%}
 .bphoto img[src*="biz-sustainability"]{object-position:50% 36%}
 .bphoto img[src*="biz-technology"]{object-position:50% 26%}
+
+/* HERO：写真下端のネイビーの丘（画像の下約13%）は使わない。写真を上揃えで少し拡大し、丘の部分を枠の外へ逃がす */
+.hero-bg img{height:118%;object-position:76% 0}
+@media (max-width:760px){.hero-bg img{height:118%;object-position:78% 0}}
