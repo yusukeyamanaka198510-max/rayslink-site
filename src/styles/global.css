@@ -129,7 +129,7 @@ section{position:relative}
 }
 
 /* PHILOSOPHY(TOP) */
-.philo{overflow:hidden}
+.philo{overflow-x:clip;overflow-y:visible}
 .philo-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(24px,5vw,80px);align-items:end}
 .philo-grid>div:first-child{padding-bottom:calc(clamp(70px,11vw,170px)*.62 + 28px)}
 .philo h2{font-weight:900;line-height:1.35;font-size:clamp(1.8rem,3.9vw,3rem);letter-spacing:-.01em}
@@ -360,3 +360,9 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .hero .btns .btn{min-height:64px;padding:0 38px;font-size:1.1rem}
 .hero .btns .btn-text{min-height:44px;padding:0;font-size:1.1rem}
 @media (max-width:760px){.hero .btns .btn{min-height:56px;padding:0 30px;font-size:1.02rem}.hero .btns .btn-text{font-size:1.02rem}}
+
+/* 企業理念の写真（男女の笑顔）：右寄せで2人の顔が枠内に収まるように切り出す */
+.philo-photo img{object-position:92% 30%}
+
+/* 企業理念の写真：下端を下の波（ネイビー）の下まで伸ばし、平らな切れ目やベージュの隙間をなくす（波が上に重なる） */
+.philo-photo{margin-bottom:-56px}
