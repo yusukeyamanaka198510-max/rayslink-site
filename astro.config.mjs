@@ -10,6 +10,7 @@ const site =
 
 export default defineConfig({
   site,
+  redirects: { '/business': '/#business', '/business/': '/#business' }, // 事業内容ページは廃止（TOPの事業内容へ）
   output: 'static', // 各ページは静的生成。API(/api/contact)のみサーバー実行
   adapter: vercel(),
   integrations: [sitemap({ filter: (p) => !p.includes('/api/') })],

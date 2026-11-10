@@ -25,12 +25,12 @@ npm run build                # ビルド（@astrojs/vercel。/api/contact はサ
 - 曲線：ベジェの制御点を幅の38.2%・61.8%、端点の高さを23.6／38.2／61.8／76.4%に配置。
 
 ## ページ構成メモ
-TOPは「ヒーロー → 事業内容（事業内容ページの中身をそのまま掲載）→ 会社概要 → お問い合わせ」。事業内容の本体は `src/components/BusinessSections.astro`（4領域の写真・説明・提携事業）で、TOPと `/business/` の両方から使う。文章・写真・URLは `src/data/business.ts` を直す。
+TOPは「ヒーロー → 事業内容 → お問い合わせ」。会社概要・沿革は `/about/` のみ（TOPには載せない）。事業内容ページ（`/business/`）は廃止し、`astro.config.mjs` のリダイレクトでTOPの事業内容（`/#business`）へ転送。事業内容の本体は `src/components/BusinessSections.astro`（4領域の写真・説明・提携事業）。文章・写真・URLは `src/data/business.ts` を直す。
 企業理念（MISSION／VISION／VALUE・価値観）は企業理念ページに集約し、写真はその最上部に使用。
 
 ## 事業内容セクションの作り
 企業サイト（ソニー）の構成を参考に、ネイビー一面・大きな英語見出し＋小さな日本語・領域ごとの横いっぱいの行（`<details>`でクリック開閉、最初の「教育」だけ開いた状態）。行の左に事業の説明（1事業あたり約30〜35字）。写真は、開いた行の上端から下端まで一杯・画面の右端まで敷き、左端と上下端をネイビーへ透けるグラデーションでなじませる（`.seg-photo`のmask。スマホは説明の下に全幅で、上下をぼかす）。提携事業は別見出し「Partnership Business」で同形式（写真なし）。
-文章・URL・写真は `src/data/business.ts`、部品は `src/components/BusinessSections.astro`、TOPと `/business/` の両方で使用。`#education` 等のリンクで閉じた行も自動で開く（`src/scripts/main.ts`）。
+文章・URL・写真は `src/data/business.ts`、部品は `src/components/BusinessSections.astro`、`#education` 等のリンクで閉じた行も自動で開く（`src/scripts/main.ts`）。
 
 ## ヒーロー写真の下端
 `public/images/hero.webp` は下端（約87%より下）にネイビーの丘が描かれた写真。サイトでは丘を使わないため、写真を118%に拡大して上揃えで表示し、丘の部分を枠の外へ逃がしている（`.hero-bg img`）。写真を差し替える場合は、この拡大指定も見直す。

@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Curve from '../components/Curve.astro';
 import BusinessSections from '../components/BusinessSections.astro';
-import { history, images, company } from '../data/site';
+import { images } from '../data/site';
 ---
 <Base title="TOP" path="/" description="株式会社Rays linkの公式サイト。Live Fully. Laugh Freely. 一笑懸命。若者に選択肢を提供し、希望や可能性を届けます。金融教育・宿泊・IT・デジタルなどを展開。">
   <section class="hero">
@@ -23,37 +23,7 @@ import { history, images, company } from '../data/site';
   </section>
 
   <BusinessSections intro />
-  <Curve from="navy" to="beige" variant="4" />
-
-  <section class="bg-beige" id="about" style="padding-top:clamp(24px,4vw,56px);padding-bottom:clamp(30px,5vw,60px)">
-    <div class="wrap">
-      <div class="about-top" data-reveal>
-        <div>
-          <p class="eyebrow">会社概要 / ABOUT</p>
-          <h2 class="h-xl" style="margin-top:20px">会社概要</h2>
-        </div>
-        <div>
-          <p class="lead">2019年1月11日に創業。東京・代々木を拠点に、金融教育から宿泊、IT・デジタルまで、事業の幅を広げてきました。</p>
-          <dl class="facts">
-            <div><dt>会社名</dt><dd>{company.name}</dd></div>
-            <div><dt>設立</dt><dd>{company.founded}</dd></div>
-            <div><dt>代表取締役</dt><dd>{company.ceo}</dd></div>
-            <div><dt>資本金</dt><dd>{company.capital}</dd></div>
-            <div style="grid-column:1/-1"><dt>所在地</dt><dd>{company.zip} {company.address}</dd></div>
-          </dl>
-          <div class="btns" style="margin-top:26px"><a class="btn btn-secondary" href="/about/">会社概要・沿革を見る <span aria-hidden="true">→</span></a></div>
-        </div>
-      </div>
-      <ul class="htl" aria-label="会社沿革">
-        {history.map((h) => (
-          <li class="matte"><div class="y">{h.year}</div>{h.items.map((t) => <p>{t}</p>)}</li>
-        ))}
-      </ul>
-    </div>
-  </section>
-  <Curve from="beige" to="navy" variant="1" />
-
-  <section class="bg-navy cta-sec" style="padding-top:clamp(20px,4vw,50px);padding-bottom:clamp(60px,9vw,120px)">
+  <section class="bg-navy cta-sec" style="padding-top:clamp(55px,7vw,89px);padding-bottom:clamp(60px,9vw,120px)">
     <div class="wrap" data-reveal>
       <p class="eyebrow">お問い合わせ / CONTACT</p>
       <h2 class="mega" style="margin-top:18px">お問い合わせ</h2>
