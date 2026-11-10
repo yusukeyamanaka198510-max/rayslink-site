@@ -4,7 +4,7 @@ const path = Astro.url.pathname;
 const cur = (h: string) => (h === '/' ? path === '/' : path.startsWith(h));
 ---
 <header class="header" id="header">
-  <a class="logo" href="/" aria-label="株式会社Rays link TOPへ"><img src={logos.horizontal} alt="Rays link" width="155" height="30" /></a>
+  <a class="logo" href="/" aria-label="株式会社Rays link TOPへ"><img src={logos.horizontal} alt="Rays link" width="155" height="30" /><span class="logo-name">株式会社Rays link</span></a>
   <nav aria-label="メイン">
     <ul>
       {nav.map((n) => <li><a href={n.href} aria-current={cur(n.href) ? 'page' : undefined}>{n.label}</a></li>)}
