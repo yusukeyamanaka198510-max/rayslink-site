@@ -54,7 +54,7 @@ import { history, images, company } from '../data/site';
         <div class="cards">
           {domains.map((d, i) => (
             <a class="pcard" href={`/business/#${d.id}`} data-reveal style={`--d:${i * 0.08}s`}>
-              <img src={d.photo} alt="" loading="lazy" width="900" height="1100" />
+              <img src={d.topPhoto ?? d.photo} alt="" loading="lazy" decoding="async" width="900" height={d.topPhoto?.includes("technology") ? 1350 : 1200} />
               <div class="info">
                 <div class="ja">{d.ja}</div>
                 <div class="en">{d.en}</div>
