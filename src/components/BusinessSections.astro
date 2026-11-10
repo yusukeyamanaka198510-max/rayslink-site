@@ -1,62 +1,64 @@
 ---
-// 事業内容の本体（4領域の写真・事業の説明・提携事業）。TOPと事業内容ページの両方から使う。
-import Curve from './Curve.astro';
+// 事業内容の本体。TOPと事業内容ページの両方から使う。構成は企業サイト（ソニー）を参考：
+// 大きな英語見出し＋小さな日本語 → 領域ごとの横いっぱいの行（線・点・英語名・日本語名／左に事業の説明、右に写真1枚）
 import { domains, partners } from '../data/business';
-// intro=true：TOP用。最初の領域（教育）のセクション上部に、見出しと説明文を結合して表示する
+// intro=true：TOP用。「Business／事業内容」の見出しと導入文を先頭に表示する
 const { intro = false } = Astro.props;
 ---
-  {domains.map((d, i) => (
-    <section class={`bsec ${i % 2 === 0 ? 'flip' : ''} ${i % 2 ? 'bg-ivory' : 'bg-beige'}`} id={d.id}>
-      {intro && i === 0 && (
-        <div class="wrap">
-          <div class="biz-intro" data-reveal>
-            <span id="business" class="anchor"></span>
-            <p class="eyebrow">事業内容 / BUSINESS</p>
-            <h2 class="h-xl" style="margin-top:20px">事業内容</h2>
-            <p class="lead" style="margin-top:21px;max-width:30em">教育、宿泊、サステナビリティ、IT・デジタルの4領域で展開する自社事業と、提携先とともに取り組む提携事業をご紹介します。</p>
-          </div>
-        </div>
-      )}
-      <div class="bphoto" data-reveal>
-        <img src={d.photo} alt={d.photoPlaceholder ? `${d.en}のイメージ（仮画像）` : `${d.ja}のイメージ画像`} loading="lazy" decoding="async" width="900" height={d.id === "technology" ? 1350 : 1200} />
-        {d.photoPlaceholder && <span class="tag">仮画像</span>}
-      </div>
-      <div class="wrap">
-        <div class="btext">
-          <p class="eyebrow" data-reveal>{d.ja}</p>
-          <h2 class="en" data-reveal>{d.en}</h2>
-          <p class="lead" style="margin-top:8px" data-reveal>{d.lead}</p>
-          <div class="svc-list">
-            {d.services.map((s) => (
-              <article class="svc" data-reveal>
-                <p class="k">{s.kind}{s.since ? `｜${s.since}` : ''}</p>
-                <h3>{s.name}</h3>
-                <p>{s.desc}</p>
-                {s.url && <p class="ext"><a class="btn btn-text" href={s.url} target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="sr-only">（外部サイトが新しいタブで開きます）</span></a></p>}
-              </article>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  ))}
-  <Curve from="beige" to="navy" variant="2" />
+<section class="biz bg-navy">
+  <div class="wrap">
+    {intro && (
+      <header class="biz-head" data-reveal>
+        <span id="business" class="anchor"></span>
+        <h2 class="biz-title">Business</h2>
+        <p class="biz-sub">事業内容</p>
+        <p class="biz-lead">教育、宿泊、サステナビリティ、IT・デジタルの4領域で、事業を展開しています。</p>
+      </header>
+    )}
 
-  <section class="bg-navy" id="partnership" style="padding-bottom:clamp(60px,9vw,120px)">
-    <div class="wrap">
-      <span class="badge" data-reveal>PARTNERSHIP BUSINESS</span>
-      <h2 class="h-xl" style="margin-top:20px" data-reveal>提携事業</h2>
-      <p class="lead" style="margin-top:12px" data-reveal>以下はRays link単独の事業ではなく、提携・協業先とともに取り組む事業です。</p>
-      <div class="pgrid">
-        {partners.map((p) => (
-          <article class="matte svc" data-reveal>
-            <p class="k">{p.kind}</p>
-            <h3>{p.name}</h3>
-            <p>{p.desc}</p>
-            {p.url && <p class="ext"><a class="btn btn-text" href={p.url} target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="sr-only">（外部サイトが新しいタブで開きます）</span></a></p>}
-          </article>
-        ))}
-      </div>
-      <div class="btns" style="margin-top:44px"><a class="btn btn-primary" href="/contact/">事業・提携のご相談 <span aria-hidden="true">→</span></a><a class="btn btn-text" href="/about/">会社概要へ →</a></div>
+    <div class="seg-list">
+      {domains.map((d, i) => (
+        <details class="seg" id={d.id} open={i === 0} data-reveal>
+          <summary class="seg-head"><span class="dot" aria-hidden="true"></span><span class="seg-title"><span class="seg-en">{d.en}</span><span class="seg-ja">{d.ja}</span></span><span class="seg-toggle" aria-hidden="true"></span></summary>
+          <div class="seg-body">
+            <div class="seg-text">
+              {d.services.map((s) => (
+                <div class="seg-svc">
+                  <h4>{s.name}</h4>
+                  <p class="k">{s.kind}{s.since ? `｜${s.since}` : ''}</p>
+                  <p class="d">{s.desc}</p>
+                  {s.url && <p class="ext"><a href={s.url} target="_blank" rel="noopener noreferrer">公式サイト <span aria-hidden="true">↗</span><span class="sr-only">（外部サイトが新しいタブで開きます）</span></a></p>}
+                </div>
+              ))}
+            </div>
+            <div class="seg-photo">
+              <img src={d.photo} alt={d.photoPlaceholder ? `${d.en}のイメージ（仮画像）` : `${d.ja}のイメージ画像`} loading="lazy" decoding="async" width="900" height={d.id === "technology" ? 1350 : 1200} />
+              {d.photoPlaceholder && <span class="tag">仮画像</span>}
+            </div>
+          </div>
+        </details>
+      ))}
     </div>
-  </section>
+
+    <header class="biz-head biz-head-sub" id="partnership" data-reveal>
+      <h2 class="biz-title">Partnership Business</h2>
+      <p class="biz-sub">提携事業</p>
+      <p class="biz-lead">以下はRays link単独の事業ではなく、提携・協業先とともに取り組む事業です。</p>
+    </header>
+    <div class="seg-list seg-partners">
+      {partners.map((p) => (
+        <details class="seg" data-reveal>
+          <summary class="seg-head"><span class="dot" aria-hidden="true"></span><span class="seg-title"><span class="seg-en seg-en-jp">{p.name}</span><span class="seg-ja">{p.kind}</span></span><span class="seg-toggle" aria-hidden="true"></span></summary>
+          <div class="seg-body seg-body-solo">
+            <div class="seg-text">
+              <div class="seg-svc"><p class="d">{p.desc}</p>
+                {p.url && <p class="ext"><a href={p.url} target="_blank" rel="noopener noreferrer">公式サイト <span aria-hidden="true">↗</span><span class="sr-only">（外部サイトが新しいタブで開きます）</span></a></p>}
+              </div>
+            </div>
+          </div>
+        </details>
+      ))}
+    </div>
+    <div class="btns" style="margin-top:55px"><a class="btn btn-primary" href="/contact/">事業・提携のご相談 <span aria-hidden="true">→</span></a><a class="btn btn-text" href="/about/">会社概要へ →</a></div>
+  </div>
+</section>

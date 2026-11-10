@@ -46,3 +46,11 @@ const frame = () => {
 };
 addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
 frame();
+
+// #education などのリンクで開いたとき、閉じている事業の行を開く
+const openByHash = () => {
+  const el = location.hash ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null;
+  if (el instanceof HTMLDetailsElement) el.open = true;
+};
+addEventListener('hashchange', openByHash);
+openByHash();

@@ -159,17 +159,6 @@ section{position:relative}
 .phero .wrap{position:relative;z-index:1}
 
 /* BUSINESS(下層) */
-.bsec{padding-block:clamp(56px,8vw,110px)}
-.bsec .en{font-weight:900;font-size:clamp(2.4rem,6.4vw,5rem);line-height:1.12;letter-spacing:-.03em;padding-bottom:.08em}
-.svc{margin-top:18px;padding:22px 24px}
-.svc h3{font-size:1.18rem;font-weight:800;line-height:1.5}
-.svc .k{font-size:.76rem;font-weight:700;color:var(--sub);letter-spacing:.06em}
-.svc p{font-size:.94rem;margin-top:8px;color:var(--sub)}
-.bg-navy .svc p,.bg-navy .svc .k{color:rgba(248,242,234,.78)}
-.badge{display:inline-block;background:var(--beige);color:var(--navy);font-weight:800;font-size:.74rem;letter-spacing:.22em;padding:6px 16px;border-radius:999px}
-.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:32px}
-.pgrid .svc{margin:0}
-@media (max-width:860px){.pgrid{grid-template-columns:1fr}}
 
 /* ABOUT(下層) */
 .profile{display:grid;grid-template-columns:repeat(2,1fr);gap:0 48px;margin:0}
@@ -260,9 +249,6 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .facts dt{font-weight:800;font-size:.8rem;letter-spacing:.1em;color:var(--sub)}
 .facts dd{margin:0;font-weight:600;font-size:.94rem;line-height:1.7}
 @media (max-width:640px){.facts{grid-template-columns:1fr}}
-
-.svc .ext{margin-top:14px}
-.svc .ext .btn{font-size:.88rem;min-height:36px;color:inherit}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* プライバシーポリシー（読みやすさ重視） */
@@ -415,39 +401,57 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .hero{padding-bottom:clamp(21px,3vw,34px)}
 
 /* 事業内容（4領域）：写真はセクションの半分に上から下まで敷き（枠・角丸・影なし）、説明の高さと必ず一致させる。説明は区切り線で並べる */
-.bsec{position:relative;overflow:hidden;padding-block:clamp(55px,6vw,89px);min-height:clamp(480px,42vw,640px)}
-.bsec>.wrap{position:relative;z-index:2}
-.bphoto{position:absolute;z-index:0;top:0;bottom:0;width:50%;overflow:hidden}
-.bphoto img{width:100%;height:100%;object-fit:cover}
-.bsec.flip .bphoto{right:0;-webkit-mask-image:linear-gradient(270deg,#000 0,#000 90%,transparent 100%);mask-image:linear-gradient(270deg,#000 0,#000 90%,transparent 100%)}
-.bsec:not(.flip) .bphoto{left:0;-webkit-mask-image:linear-gradient(90deg,#000 0,#000 90%,transparent 100%);mask-image:linear-gradient(90deg,#000 0,#000 90%,transparent 100%)}
-.bsec.flip .bphoto{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 10%);mask-image:linear-gradient(90deg,transparent 0,#000 10%)}
-.bphoto .tag{position:absolute;left:50%;transform:translateX(-50%);bottom:8%;background:var(--ivory);padding:6px 14px;border-radius:999px;font-size:.7rem;font-weight:800;letter-spacing:.18em}
-.btext{width:calc(50% - 34px)}
-.bsec:not(.flip) .btext{margin-left:calc(50% + 34px)}
-.bsec .en{font-weight:900;font-size:clamp(2.058rem,4.6vw,3.33rem);line-height:1.12;letter-spacing:-.03em;padding-bottom:.08em}
-.svc-list{margin-top:21px}
-.svc-list .svc{margin:0;padding:18px 0 20px;border-top:1px solid var(--line);border-radius:0;background:none;box-shadow:none}
-.svc-list .svc:last-child{border-bottom:1px solid var(--line)}
-.svc-list .svc h3{font-size:1.272rem}
-.svc-list .svc p{font-size:.94rem;line-height:1.85}
-.svc-list .svc .ext{margin-top:8px}
-.biz-intro{margin-bottom:clamp(34px,4vw,55px);position:relative;max-width:min(560px,50%)}
-.biz-intro .anchor{position:absolute;top:calc(-1 * clamp(89px,10vw,144px));left:0;width:1px;height:1px}
-@media (max-width:860px){
-  .bsec{min-height:0;padding-block:0 clamp(40px,8vw,55px)}
-  .bsec>.wrap:first-child{padding-top:clamp(55px,9vw,89px)}
-  .bphoto,.bsec .bphoto{position:relative;width:100%;height:clamp(240px,66vw,380px);left:auto;right:auto;margin:0 0 28px;-webkit-mask-image:none;mask-image:none}
-  .btext,.bsec:not(.flip) .btext{width:auto;margin-left:0}
-  .biz-intro{max-width:none;margin-bottom:34px}
-  .bphoto{order:0}
-}
 /* 縦長の写真の顔が切れないよう位置を調整 */
-.bphoto img[src*="biz-education"]{object-position:50% 34%}
-.bphoto img[src*="biz-hospitality"]{object-position:50% 50%}
-.bphoto img[src*="biz-sustainability"]{object-position:50% 36%}
-.bphoto img[src*="biz-technology"]{object-position:50% 26%}
 
 /* HERO：写真下端のネイビーの丘（画像の下約13%）は使わない。写真を上揃えで少し拡大し、丘の部分を枠の外へ逃がす */
 .hero-bg img{height:118%;object-position:76% 0}
 @media (max-width:760px){.hero-bg img{height:118%;object-position:78% 0}}
+
+/* ===== 事業内容：企業サイト（ソニー）を参考にした構成。ネイビー一面／大きな英語見出し＋小さな日本語／領域ごとの横いっぱいの行（クリックで開閉） ===== */
+.biz{padding:clamp(55px,8vw,110px) 0 clamp(55px,8vw,110px)}
+.biz-head{position:relative;max-width:var(--max);margin-bottom:clamp(34px,5vw,55px)}
+.biz-head .anchor{position:absolute;top:calc(-1 * clamp(89px,10vw,144px));left:0;width:1px;height:1px}
+.biz-title{font-weight:800;line-height:1.05;letter-spacing:-.03em;font-size:clamp(2.618rem,7vw,5.236rem)}
+.biz-sub{margin-top:8px;font-weight:700;font-size:1rem;color:rgba(248,242,234,.62);letter-spacing:.08em}
+.biz-lead{margin-top:clamp(21px,3vw,34px);max-width:34em;color:rgba(248,242,234,.86);font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.9}
+.biz-head-sub{margin-top:clamp(89px,11vw,144px)}
+.seg-list{border-bottom:1px solid rgba(248,242,234,.28)}
+.seg{border-top:1px solid rgba(248,242,234,.28)}
+.seg-head{display:flex;align-items:center;gap:clamp(13px,2vw,21px);padding:clamp(21px,3vw,34px) 0;cursor:pointer;list-style:none;position:relative}
+.seg-head::-webkit-details-marker{display:none}
+.seg-head::marker{content:""}
+.seg-head:focus-visible{outline:3px solid var(--sun);outline-offset:4px;border-radius:6px}
+.seg .dot{flex:none;width:13px;height:13px;border-radius:50%;background:var(--sun)}
+.seg-title{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
+.seg-en{font-weight:700;line-height:1.1;letter-spacing:-.02em;font-size:clamp(2.058rem,4.6vw,3.33rem)}
+.seg-en-jp{font-size:clamp(1.618rem,3.2vw,2.058rem);letter-spacing:0}
+.seg-ja{font-weight:600;font-size:.95rem;color:rgba(248,242,234,.62);letter-spacing:.06em}
+.seg-toggle{flex:none;position:relative;width:34px;height:34px;border:1.5px solid rgba(248,242,234,.5);border-radius:50%;transition:background .3s,border-color .3s}
+.seg-toggle::before,.seg-toggle::after{content:"";position:absolute;left:50%;top:50%;width:13px;height:1.5px;background:var(--light);transform:translate(-50%,-50%);transition:transform .3s var(--ease)}
+.seg-toggle::after{transform:translate(-50%,-50%) rotate(90deg)}
+.seg[open] .seg-toggle::after{transform:translate(-50%,-50%) rotate(0)}
+.seg-head:hover .seg-toggle{background:rgba(248,242,234,.12);border-color:var(--light)}
+.seg-body{display:grid;grid-template-columns:1.618fr 1fr;gap:clamp(34px,5vw,89px);align-items:start;padding:0 0 clamp(34px,5vw,55px) calc(13px + clamp(13px,2vw,21px))}
+.seg-body-solo{grid-template-columns:1fr}
+.seg-svc{padding:0 0 clamp(21px,3vw,34px)}
+.seg-svc:last-child{padding-bottom:0}
+.seg-svc h4{font-size:1.272rem;font-weight:800;line-height:1.5;margin:0}
+.seg-svc .k{font-size:.8rem;font-weight:700;color:rgba(248,242,234,.62);letter-spacing:.05em;margin-top:2px}
+.seg-svc .d{margin-top:10px;font-size:.98rem;line-height:1.9;color:rgba(248,242,234,.92);max-width:34em}
+.seg-svc .ext{margin-top:10px}
+.seg-svc .ext a{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:.9rem;color:var(--light);text-decoration:none;border-bottom:1.5px solid rgba(248,242,234,.55);padding-bottom:2px;min-height:24px}
+.seg-svc .ext a:hover{border-bottom-color:var(--light)}
+.seg-photo{position:relative;aspect-ratio:1.618/1;overflow:hidden}
+.seg-photo img{width:100%;height:100%;object-fit:cover}
+.seg-photo .tag{position:absolute;left:12px;top:12px;background:var(--ivory);color:var(--navy);padding:4px 12px;border-radius:999px;font-size:.7rem;font-weight:800;letter-spacing:.18em}
+.seg-photo img[src*="biz-education"]{object-position:50% 34%}
+.seg-photo img[src*="biz-hospitality"]{object-position:50% 50%}
+.seg-photo img[src*="biz-sustainability"]{object-position:50% 36%}
+.seg-photo img[src*="biz-technology"]{object-position:50% 26%}
+.seg-partners .seg-body{padding-bottom:clamp(21px,3vw,34px)}
+@media (max-width:860px){
+  .seg-body{grid-template-columns:1fr;padding-left:0;gap:21px}
+  .seg-photo{order:2;aspect-ratio:1.618/1}
+}
+@media (prefers-reduced-motion:reduce){.seg-toggle,.seg-toggle::before,.seg-toggle::after{transition:none}}
+.seg-svc .d{max-width:40em;text-wrap:pretty}
