@@ -36,4 +36,4 @@ TOPは「ヒーロー → 事業内容（事業内容ページの中身をその
 `public/images/hero.webp` は下端（約87%より下）にネイビーの丘が描かれた写真。サイトでは丘を使わないため、写真を118%に拡大して上揃えで表示し、丘の部分を枠の外へ逃がしている（`.hero-bg img`）。写真を差し替える場合は、この拡大指定も見直す。
 
 ## 事業内容の幅（案A／案B）
-`src/components/BusinessSections.astro` の `<section class="biz biz--bleed ...">` の **`biz--bleed` を付けると案A**（横線を画面の左端〜右端、写真を画面の右端まで伸ばす）、**外すと案B**（線も写真も文章と同じ幅の中に収まり、写真の右端が線の右端にそろう）。CSSは `global.css` 末尾の「案A」ブロック。現在は案A。
+`src/components/BusinessSections.astro` の `<section class="biz biz--bleed ...">` の **`biz--bleed` を付けると案A**（横線を画面の左端〜右端、写真を画面の右端まで伸ばし、文字も画面の左端側から始める）、**外すと案B**（線も写真も文章と同じ幅の中に収まり、写真の右端が線の右端にそろう）。CSSは `global.css` 末尾の「案A」ブロック。現在は案A。
