@@ -73,7 +73,10 @@ section{position:relative}
 /* ヘッダー（控えめなマット） */
 .header{position:fixed;z-index:100;top:14px;left:50%;transform:translateX(-50%);width:min(1180px,calc(100% - 24px));padding:10px 14px 10px 26px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-radius:999px;background:var(--ivory);box-shadow:var(--shadow);transition:box-shadow .3s}
 .header.scrolled{box-shadow:0 1px 0 rgba(255,255,255,.65) inset,0 16px 32px -16px rgba(20,37,59,.4)}
+.header .logo{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-decoration:none}
 .header .logo img{height:30px;width:auto}
+/* 会社名：ロゴマークの下・左揃え。大きさはキャッチコピーの約70%（下限12px） */
+.header .logo-name{font-weight:800;line-height:1;letter-spacing:.02em;color:var(--navy);font-size:max(12px,calc(clamp(1rem,1.7vw,1.2rem)*.7))}
 .header nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;align-items:center}
 .header nav a{display:block;padding:10px 16px;border-radius:999px;font-weight:700;font-size:.86rem;letter-spacing:.06em;text-decoration:none;transition:background .25s}
 .header nav a:hover,.header nav a[aria-current=page]{background:var(--beige)}
@@ -279,11 +282,10 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 }
 
 /* HEROの会社説明（何の会社かを最初の画面で伝える） */
-/* 会社名の大きさは、HEROの英語見出し（Live Fully. Laugh Freely.）の70%。見出しのサイズ指定と連動させている */
-.kicker{display:grid;gap:6px;margin-bottom:clamp(8px,1.4vw,16px)}
-.kicker-name{font-weight:800;line-height:1.15;letter-spacing:-.01em;font-size:calc(clamp(3rem,8.4vw,7.8rem)*.7)}
-.kicker-sub{font-weight:600;color:var(--sub);letter-spacing:.06em;font-size:clamp(.88rem,1.3vw,1rem)}
-@media (max-width:760px){.kicker-name{font-size:calc(clamp(2.5rem,11.6vw,3.9rem)*.7)}}
+/* HEROの補足文：英語見出し（Live Fully. Laugh Freely.）の30%の大きさ。見出しのサイズ指定と連動させている */
+.kicker{display:block;margin-bottom:clamp(8px,1.4vw,16px)}
+.kicker-sub{display:block;font-weight:600;color:var(--sub);letter-spacing:.02em;line-height:1.35;font-size:calc(clamp(3rem,8.4vw,7.8rem)*.3)}
+@media (max-width:760px){.kicker-sub{font-size:calc(clamp(2.5rem,11.6vw,3.9rem)*.3)}}
 .hero .jp .what{font-size:clamp(.92rem,1.35vw,1.02rem);font-weight:500;color:var(--sub);line-height:1.85;max-width:34em}
 .hero .jp .what,.hero .jp .name+p{margin:0}
 .hero .jp .what,.hero .jp p{word-break:auto-phrase}
