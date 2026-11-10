@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Curve from '../components/Curve.astro';
-import { domains } from '../data/business';
+import BusinessSections from '../components/BusinessSections.astro';
 import { history, images, company } from '../data/site';
 ---
 <Base title="TOP" path="/" description="株式会社Rays linkの公式サイト。Live Fully. Laugh Freely. 一笑懸命。若者に選択肢を提供し、希望や可能性を届けます。金融教育・宿泊・IT・デジタルなどを展開。">
@@ -15,39 +15,24 @@ import { history, images, company } from '../data/site';
         <p class="what">金融教育・宿泊・IT・デジタルなどの様々な業種の事業を展開することにより、社会への貢献を果たし、次世代に希望と可能性を届ける。</p>
       </div>
       <div class="btns" data-reveal style="--d:.5s">
-        <a class="btn btn-primary" href="/business/">事業内容を見る <span aria-hidden="true">→</span></a>
+        <a class="btn btn-primary" href="#business">事業内容を見る <span aria-hidden="true">→</span></a>
         <a class="btn btn-text" href="/about/">会社概要</a>
       </div>
     </div>
     <div class="hero-bg" aria-hidden="true"><img src={images.hero} alt="" width="1795" height="876" fetchpriority="high" decoding="async" /><span class="hero-mark"></span></div>
   </section>
 
-  <section class="bg-navy section" id="business" style="padding-top:clamp(55px,7vw,89px)">
+  <section class="bg-navy" id="business" style="padding-top:clamp(55px,7vw,89px);padding-bottom:clamp(21px,3vw,34px)">
     <div class="wrap">
       <div class="biz-head" data-reveal>
         <p class="eyebrow">事業内容 / BUSINESS</p>
         <h2 class="h-xl" style="margin-top:20px">事業内容</h2>
-      </div>
-      <div>
-        <div class="cards">
-          {domains.map((d, i) => (
-            <a class="pcard" href={`/business/#${d.id}`} data-reveal style={`--d:${i * 0.08}s`}>
-              <img src={d.photo} alt="" loading="lazy" decoding="async" width="900" height={d.id === "technology" ? 1350 : 1200} />
-              <div class="info">
-                <div class="ja">{d.ja}</div>
-                <div class="en">{d.en}</div>
-                <p>{d.lead}</p>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-      <div class="biz-foot" data-reveal>
-        <p class="lead">教育、宿泊、サステナビリティ、IT・デジタルの4領域で、自社事業を展開しています。提携先とともに取り組む事業も、あわせてご紹介します。</p>
-        <div><a class="btn btn-secondary" href="/business/">事業内容を見る <span aria-hidden="true">→</span></a></div>
+        <p class="lead" style="margin-top:21px;max-width:36em">教育、宿泊、サステナビリティ、IT・デジタルの4領域で展開する自社事業と、提携先とともに取り組む提携事業をご紹介します。</p>
       </div>
     </div>
   </section>
+  <Curve from="navy" to="beige" variant="2" />
+  <BusinessSections />
   <Curve from="navy" to="beige" variant="4" />
 
   <section class="bg-beige" id="about" style="padding-top:clamp(24px,4vw,56px);padding-bottom:clamp(30px,5vw,60px)">

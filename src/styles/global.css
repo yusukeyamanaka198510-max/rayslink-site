@@ -134,19 +134,7 @@ section{position:relative}
 .biz-head{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(20px,4vw,64px);align-items:end;margin-bottom:clamp(30px,4.5vw,56px)}
 .biz-head .h-xl{color:var(--light)}
 .biz-head .lead{margin-bottom:22px}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.6vw,22px)}
-.pcard{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/4.3;color:var(--light);text-decoration:none;display:block;isolation:isolate;border:1px solid var(--line-on-navy);transition:transform .5s var(--ease)}
-.pcard:hover{transform:translateY(-8px)}
-.pcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease)}
-.pcard:hover img{transform:scale(1.06)}
-.pcard::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(20,37,59,.92) 8%,rgba(20,37,59,.5) 42%,rgba(20,37,59,0) 72%)}
-.pcard .info{position:absolute;left:0;right:0;bottom:0;padding:22px}
-.pcard .ja{font-weight:800;font-size:1.05rem;margin-bottom:2px}
-.pcard .en{font-size:.78rem;letter-spacing:.14em;opacity:.8;margin-bottom:10px}
-.pcard p{font-size:.86rem;line-height:1.7;opacity:.92}
-@media (max-width:1060px){.cards{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:860px){.biz-head{grid-template-columns:1fr}}
-@media (max-width:560px){.cards{grid-template-columns:1fr}.pcard{aspect-ratio:4/3.6}}
 
 /* ABOUT(TOP) */
 .about-top{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(24px,5vw,80px);align-items:start}
@@ -356,10 +344,6 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 /* 企業理念の写真：下端を下の波（ネイビー）の下まで伸ばし、平らな切れ目やベージュの隙間をなくす（波が上に重なる） */
 
 /* TOPの事業内容カード：縦長の写真。人物の顔・回収の網が切れないよう、写真ごとに表示位置を調整 */
-.pcard img[src*="biz-education"]{object-position:50% 35%}
-.pcard img[src*="biz-hospitality"]{object-position:50% 55%}
-.pcard img[src*="biz-sustainability"]{object-position:50% 40%}
-.pcard img[src*="biz-technology"]{object-position:50% 25%}
 
 /* 企業理念：写真は枠なし。セクションの右側いっぱいに敷き、上下のネイビーの波を手前に重ねる（ベージュの枠・隙間なし） */
 
@@ -405,10 +389,6 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 @media (max-width:860px){.brow{grid-template-columns:1fr}.vitem{grid-template-columns:1fr}}
 
 /* 事業内容カード：幅 1 : 高さ 1.618 */
-.pcard{aspect-ratio:1/1.618}
-.cards{gap:clamp(13px,1.6vw,21px)}
-@media (max-width:1060px){.pcard{aspect-ratio:1/1.272}}
-@media (max-width:560px){.pcard{aspect-ratio:1.272/1}}
 
 /* 写真：横長は 1.618 : 1 */
 .bphoto{aspect-ratio:1.618/1}
@@ -416,10 +396,6 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 
 /* 見出しとカードの間・カード下の説明（事業内容） */
 .biz-head{display:block;margin-bottom:clamp(34px,4.5vw,55px)}
-.biz-foot{display:grid;grid-template-columns:1.618fr 1fr;gap:clamp(21px,3vw,55px);align-items:center;margin-top:clamp(34px,4.5vw,55px)}
-.biz-foot .lead{margin:0;color:rgba(248,242,234,.82);max-width:38em}
-.biz-foot>div{justify-self:end}
-@media (max-width:860px){.biz-foot{grid-template-columns:1fr}.biz-foot>div{justify-self:start}}
 
 /* --- 黄金比適用後の調整 --- */
 /* テキストリンクにはボタンの余白を入れない */
