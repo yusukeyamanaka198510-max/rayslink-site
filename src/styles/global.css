@@ -165,8 +165,6 @@ section{position:relative}
 @media (max-width:640px){.vitem{grid-template-columns:1fr;gap:8px}}
 
 /* PHILOSOPHY(下層) */
-.kw{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;padding:0;list-style:none}
-.kw li{padding:13px 26px;border-radius:999px;font-weight:800;font-size:clamp(1rem,2vw,1.25rem);border:1.5px solid var(--light)}
 
 /* CONTACT */
 .form-panel{max-width:820px;margin-inline:auto;padding:clamp(24px,5vw,56px)}
@@ -496,7 +494,6 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .seg-static .seg-head{cursor:default}
 .seg-static .seg-body{padding-bottom:clamp(34px,5vw,55px)}
 .mvv-sentence{font-weight:800;font-size:clamp(1.5rem,2.6vw,2.4rem);line-height:1.55;max-width:min(900px,80%);text-wrap:balance}
-.seg-static .kw{margin-top:0}
 @media (max-width:860px){.mvv-sentence{max-width:none}}
 /* 提携事業の行は写真がないので、開いた行の最小高さを外して空白を詰める */
 .seg-partners .seg[open]{min-height:0}
@@ -508,5 +505,9 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .biz--light .seg,.biz--light .seg-list{border-color:rgba(20,37,59,.22)}
 .biz--light.biz--bleed .seg::before,.biz--light.biz--bleed .seg-list::after{background:rgba(20,37,59,.22)}
 .biz--light .seg-ja{color:var(--sub)}
-.biz--light .kw li{border-color:var(--navy)}
 .biz--light .seg-text{text-shadow:none}
+
+/* Message（会社の思い）：読みやすい行間と幅 */
+.msg{max-width:min(40em,80%);font-size:clamp(1.05rem,1.5vw,1.272rem);line-height:2.05;font-weight:500;text-wrap:pretty}
+.msg+.msg{margin-top:1.1em}
+@media (max-width:860px){.msg{max-width:none}}
