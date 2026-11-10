@@ -328,3 +328,17 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
   .hero .jp{margin-top:22px}
   .hero .btns{margin-top:24px}
 }
+
+/* HERO：提供写真（夕日と雲海・下端はネイビーの丘）をファーストビュー全体の背景に。下端のネイビーは次のセクションと同色で連続する */
+.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:76% 100%}
+.hero{padding-bottom:clamp(70px,10vw,150px)}
+@media (min-width:761px){.hero{padding-bottom:clamp(70px,10vw,150px)}}
+@media (max-width:760px){.hero{min-height:max(88svh,700px)}.hero-bg img{object-position:78% 100%}}
+
+/* HERO：写真の上でも文字が読めるよう、文字側にだけ薄いベージュのぼかしを重ねる（写真自体は加工しない） */
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(241,228,214,.82) 0%,rgba(241,228,214,.6) 34%,rgba(241,228,214,.18) 56%,rgba(241,228,214,0) 70%)}
+.hero .jp .what{color:var(--navy);font-weight:600}
+@media (max-width:760px){.hero-bg::after{background:linear-gradient(180deg,rgba(241,228,214,.8) 0%,rgba(241,228,214,.66) 52%,rgba(241,228,214,.2) 74%,rgba(241,228,214,0) 86%)}}
+/* ぼかしは下へいくほど薄くし、下端のネイビーの丘にはかからないようにする（下のセクションと色を連続させるため） */
+.hero-bg::after{-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 58%,transparent 84%);mask-image:linear-gradient(180deg,#000 0%,#000 58%,transparent 84%)}

@@ -36,6 +36,6 @@ export const logos = {
 
 // 写真素材（提供されたら差し替える）。現在は仮イラスト。
 export const images = {
-  hero: '/images/hero-sunset.svg',          // 夕日と雲海
+  hero: '/images/hero.webp',               // 夕日と雲海（提供写真。下端のネイビーはサイトのネイビーと同色）
   philosophy: '/images/philosophy-sunrise.svg', // 未来へ向かう印象のカット
 };
