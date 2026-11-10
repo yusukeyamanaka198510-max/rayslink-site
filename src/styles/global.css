@@ -342,3 +342,11 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 @media (max-width:760px){.hero-bg::after{background:linear-gradient(180deg,rgba(241,228,214,.8) 0%,rgba(241,228,214,.66) 52%,rgba(241,228,214,.2) 74%,rgba(241,228,214,0) 86%)}}
 /* ぼかしは下へいくほど薄くし、下端のネイビーの丘にはかからないようにする（下のセクションと色を連続させるため） */
 .hero-bg::after{-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 58%,transparent 84%);mask-image:linear-gradient(180deg,#000 0%,#000 58%,transparent 84%)}
+
+/* HERO：公式ロゴのマークを、画面中央から右端へはみ出す大きさで、薄いエンボス（浮き彫り）表示。装飾のみ・動かさない */
+.hero-mark{position:absolute;z-index:1;top:3%;right:-9vw;width:min(58vw,900px);aspect-ratio:1200/1190;pointer-events:none;
+  filter:drop-shadow(-2px -2px 2px rgba(255,255,255,.5)) drop-shadow(3px 4px 5px rgba(20,37,59,.26));
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 78%,transparent 96%);mask-image:linear-gradient(180deg,#000 0%,#000 78%,transparent 96%)}
+.hero-mark::before{content:"";position:absolute;inset:0;background:rgba(255,255,255,.17);
+  -webkit-mask:url(/images/mark-mask.webp) center/100% 100% no-repeat;mask:url(/images/mark-mask.webp) center/100% 100% no-repeat}
+@media (max-width:760px){.hero-mark{top:24%;right:-46vw;width:118vw}}
