@@ -37,6 +37,5 @@ export const logos = {
 // 写真素材（提供されたら差し替える）。現在は仮イラスト。
 export const images = {
   hero: '/images/hero.webp',               // 夕日と雲海（提供写真。下端のネイビーはサイトのネイビーと同色）
-  philosophy: '/images/philosophy.webp', // TOPの企業理念：青空を見上げる若い男女（提供・生成画像）
-  philosophyPage: '/images/philosophy-sunrise.svg', // 企業理念ページ上部：仮イラスト（提供写真に差し替え予定）
+  philosophy: '/images/philosophy.webp', // 企業理念ページ最上部：青空を見上げる若い男女（提供・生成画像）
 };

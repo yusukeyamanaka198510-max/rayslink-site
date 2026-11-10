@@ -129,14 +129,6 @@ section{position:relative}
 }
 
 /* PHILOSOPHY(TOP) */
-.philo{overflow-x:clip;overflow-y:visible}
-.philo-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(24px,5vw,80px);align-items:end}
-.philo-grid>div:first-child{padding-bottom:calc(var(--curve-h)*.618 + 28px)}
-.philo h2{font-weight:900;line-height:1.35;font-size:clamp(1.8rem,3.9vw,3rem);letter-spacing:-.01em}
-.philo .lead{margin:22px 0 32px;max-width:30em}
-.philo-photo{border-radius:58% 42% 0 0 / 66% 62% 0 0;overflow:hidden;aspect-ratio:1/.86;position:relative;box-shadow:var(--shadow)}
-.philo-photo img{width:100%;height:112%;object-fit:cover;will-change:transform}
-@media (max-width:860px){.philo-grid{grid-template-columns:1fr}.philo-grid>div:first-child{padding-bottom:0}.philo-photo{aspect-ratio:1/.8}}
 
 /* BUSINESS(TOP) */
 .biz-head{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(20px,4vw,64px);align-items:end;margin-bottom:clamp(30px,4.5vw,56px)}
@@ -232,8 +224,6 @@ section{position:relative}
 .vpanel .t{margin-top:12px;font-weight:900;font-size:clamp(1.7rem,4.2vw,3.1rem);line-height:1.4;text-wrap:balance}
 .kw{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;padding:0;list-style:none}
 .kw li{padding:13px 26px;border-radius:999px;font-weight:800;font-size:clamp(1rem,2vw,1.25rem);border:1.5px solid var(--light)}
-.phero-photo{border-radius:58% 42% 0 0 / 66% 62% 0 0;overflow:hidden;aspect-ratio:1/.7;box-shadow:var(--shadow);width:min(520px,100%);margin-left:auto}
-.phero-photo img{width:100%;height:100%;object-fit:cover}
 
 /* CONTACT */
 .form-panel{max-width:820px;margin-inline:auto;padding:clamp(24px,5vw,56px)}
@@ -362,10 +352,8 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 @media (max-width:760px){.hero .btns .btn{min-height:56px;padding:0 30px;font-size:1.02rem}.hero .btns .btn-text{font-size:1.02rem}}
 
 /* 企業理念の写真（男女の笑顔）：右寄せで2人の顔が枠内に収まるように切り出す */
-.philo-photo img{object-position:92% 30%}
 
 /* 企業理念の写真：下端を下の波（ネイビー）の下まで伸ばし、平らな切れ目やベージュの隙間をなくす（波が上に重なる） */
-.philo-photo{margin-bottom:-56px}
 
 /* TOPの事業内容カード：縦長の写真。人物の顔・回収の網が切れないよう、写真ごとに表示位置を調整 */
 .pcard img[src*="biz-education"]{object-position:50% 35%}
@@ -374,23 +362,8 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .pcard img[src*="biz-technology"]{object-position:50% 25%}
 
 /* 企業理念：写真は枠なし。セクションの右側いっぱいに敷き、上下のネイビーの波を手前に重ねる（ベージュの枠・隙間なし） */
-.philo{position:relative;min-height:clamp(560px,52vw,760px);display:flex;align-items:center}
-.philo>.wrap{position:relative;z-index:4;padding-block:clamp(40px,6vw,90px)}
-.philo-grid{display:block}
-.philo-grid>div:first-child{padding-bottom:0;max-width:min(560px,52%)}
-.philo-bg{position:absolute;z-index:3;pointer-events:none;top:0;bottom:calc(var(--curve-h)*-.618);right:0;width:min(66%,1000px);overflow:hidden}
-.philo-bg img{width:100%;height:100%;object-fit:cover;object-position:78% 28%;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%),linear-gradient(180deg,transparent 0,#000 20%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 22%),linear-gradient(180deg,transparent 0,#000 20%);mask-composite:intersect}
-@media (max-width:860px){
-  .philo{display:flex;flex-direction:column;align-items:stretch;min-height:0;padding-bottom:0}
-  .philo>.wrap{order:1;padding-bottom:28px}
-  .philo-grid>div:first-child{max-width:none}
-  .philo-bg{position:relative;width:100%;height:clamp(300px,82vw,440px);margin-top:0;order:2;margin-bottom:calc(var(--curve-h)*-.618)}
-  .philo-bg img{object-position:80% 24%;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%);mask-image:linear-gradient(180deg,transparent 0,#000 18%)}
-}
 
 .curve.over{z-index:5}
-@media (max-width:860px){.philo-bg{z-index:3;bottom:auto}}
 
 /* ============================================================
    黄金比（φ = 1.618）の取り込み
@@ -429,9 +402,7 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .about-top{grid-template-columns:1fr 1.618fr}
 .footer .cols{grid-template-columns:1.618fr 1fr 1.272fr}
 .vitem{grid-template-columns:minmax(120px,1fr) 2.618fr}
-.philo-bg{width:min(61.8%,1000px)}
-.philo-grid>div:first-child{max-width:min(560px,38.2vw)}
-@media (max-width:860px){.brow{grid-template-columns:1fr}.philo-grid>div:first-child{max-width:none}.vitem{grid-template-columns:1fr}}
+@media (max-width:860px){.brow{grid-template-columns:1fr}.vitem{grid-template-columns:1fr}}
 
 /* 事業内容カード：幅 1 : 高さ 1.618 */
 .pcard{aspect-ratio:1/1.618}
@@ -441,7 +412,6 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 
 /* 写真：横長は 1.618 : 1 */
 .bphoto{aspect-ratio:1.618/1}
-.phero-photo{aspect-ratio:1.618/1}
 @media (max-width:860px){.bphoto{aspect-ratio:1.272/1}}
 
 /* 見出しとカードの間・カード下の説明（事業内容） */
@@ -455,7 +425,6 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 /* テキストリンクにはボタンの余白を入れない */
 .btn-text,.hero .btns .btn-text{padding:0;min-height:44px}
 /* 企業理念の写真：PCは幅61.8%、スマホは全幅（スマホ用の指定を上書きしない） */
-@media (max-width:860px){.philo-bg{width:100%}}
 /* 事業内容ページの写真：角丸はフィボナッチ（21 / 89）。対角で大小を付け、flipで反転 */
 .bphoto,.bsec.flip .bphoto{border-radius:21px 89px 21px 89px}
 .bsec.flip .bphoto{border-radius:89px 21px 89px 21px}
@@ -464,38 +433,30 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 @media (max-width:860px){.about-top{grid-template-columns:1fr}}
 
 /* TOP企業理念：高さの固定をやめ内容に合わせる／写真は幅38.2%（黄金比の小さい側）／文字を大きく／MISSION・VISION・VALUEと価値観を掲載 */
-.philo{min-height:0}
-.philo>.wrap{padding-block:clamp(55px,7vw,89px)}
-.philo-bg{width:min(38.2%,640px)}
-.philo-bg img{object-position:72% 26%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24%),linear-gradient(180deg,transparent 0,#000 20%)}
-.philo-grid>div:first-child{max-width:min(660px,56vw)}
-.philo .philo-title{margin-top:18px;font-weight:900;line-height:1.15;letter-spacing:-.01em;font-size:clamp(2.618rem,5.6vw,4.236rem)}
-.philo .lead{margin:21px 0 34px;max-width:32em;font-size:clamp(1.05rem,1.55vw,1.272rem)}
-.mvv-list{margin:0 0 28px;border-top:1.5px solid var(--line)}
-.mvv-list>div{display:grid;grid-template-columns:7.2em 1fr;gap:13px;padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline}
-.mvv-list dt{font-weight:900;font-size:.8rem;letter-spacing:.2em;color:var(--sub)}
-.mvv-list dd{margin:0;font-weight:700;font-size:clamp(1.05rem,1.5vw,1.272rem);line-height:1.6}
-.kw-inline{display:flex;flex-wrap:wrap;gap:8px 13px;margin:0 0 34px;padding:0;list-style:none}
-.kw-inline li{padding:7px 18px;border-radius:999px;border:1.5px solid var(--navy);font-weight:800;font-size:.9rem}
-@media (max-width:860px){
-  .philo>.wrap{padding-bottom:21px}
-  .philo-bg{width:100%;height:clamp(240px,64vw,360px)}
-  .mvv-list>div{grid-template-columns:1fr;gap:2px}
-}
 
 /* TOP企業理念：縦を詰める（価値観のタグはTOPから外し企業理念ページで紹介）／顔が切れないよう写真を右寄せ／スマホは文章を全幅 */
-.philo>.wrap{padding-block:clamp(34px,4.6vw,55px)}
-.philo .philo-title{margin-top:13px;font-size:clamp(2.618rem,5.2vw,3.9rem)}
-.philo .lead{margin:13px 0 21px}
-.mvv-list{margin:0 0 26px}
-.mvv-list>div{padding:11px 0}
-.philo-bg img{object-position:100% 22%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 11%),linear-gradient(180deg,transparent 0,#000 16%)}
-@media (max-width:860px){.philo-grid>div:first-child{max-width:none}.philo>.wrap{padding-bottom:21px}.philo-bg img{object-position:92% 24%;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%)}}
 /* 2人の顔が揃って見えるよう、PCの写真幅を44%に（38.2%では男性の顔が隠れるため） */
-@media (min-width:861px){.philo-bg{width:min(44%,660px)}.philo-grid>div:first-child{max-width:min(620px,50vw)}.philo-bg img{object-position:100% 22%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%),linear-gradient(180deg,transparent 0,#000 16%)}}
 /* 男性・女性の顔が揃うよう、写真を2人の中心（元画像の約78%位置）に合わせて表示し、写真幅を広げる。左端は顔にかからない短さでぼかす */
-@media (min-width:861px){
-  .philo-bg{width:min(52%,780px)}
-  .philo-bg img{object-position:78% 22%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%),linear-gradient(180deg,transparent 0,#000 16%)}
-  .philo-grid>div:first-child{max-width:min(600px,46vw)}
+
+/* 企業理念ページ最上部：写真を右側いっぱいに敷き、文字は左。下はベージュ→アイボリーの波が手前に重なる */
+.phero-photo-top{position:relative;overflow:hidden;padding:clamp(144px,15vw,200px) 0 clamp(89px,11vw,144px)}
+.phero-photo-top .wrap{position:relative;z-index:2}
+.phero-copy{max-width:min(620px,50vw)}
+.phero-photo-top .mega{font-size:clamp(3.33rem,8vw,6.854rem)}
+.phero-bg{position:absolute;z-index:0;top:0;bottom:0;right:0;width:min(52%,780px);overflow:hidden;pointer-events:none}
+.phero-bg img{width:100%;height:100%;object-fit:cover;object-position:78% 22%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%),linear-gradient(180deg,transparent 0,#000 14%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 9%),linear-gradient(180deg,transparent 0,#000 14%);mask-composite:intersect}
+@media (max-width:860px){
+  .phero-photo-top{display:flex;flex-direction:column;padding:clamp(118px,28vw,150px) 0 0}
+  .phero-photo-top .wrap{order:1;padding-bottom:34px}
+  .phero-copy{max-width:none}
+  .phero-photo-top .mega{font-size:clamp(3.33rem,17vw,4.8rem)}
+  .phero-bg{position:relative;order:2;width:100%;height:clamp(240px,66vw,380px);margin-bottom:-2px}
+  .phero-bg img{object-position:90% 24%;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%);mask-image:linear-gradient(180deg,transparent 0,#000 18%)}
 }
+/* 事業内容ページの写真：縦長の写真なので、人物の顔が切れないよう写真ごとに位置を調整 */
+.bphoto img[src*="biz-education"]{object-position:50% 34%}
+.bphoto img[src*="biz-hospitality"]{object-position:50% 50%}
+.bphoto img[src*="biz-sustainability"]{object-position:50% 36%}
+.bphoto img[src*="biz-technology"]{object-position:50% 26%}
+.bphoto{aspect-ratio:1.272/1}
+@media (max-width:860px){.bphoto{aspect-ratio:1/1}}
