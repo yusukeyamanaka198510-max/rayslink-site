@@ -21,29 +21,8 @@ import { history, images, company } from '../data/site';
     </div>
     <div class="hero-bg" aria-hidden="true"><img src={images.hero} alt="" width="1795" height="876" fetchpriority="high" decoding="async" /><span class="hero-mark"></span></div>
   </section>
-  <Curve from="navy" to="beige" variant="2" />
 
-  <section class="philo bg-beige" id="philosophy" style="padding-top:clamp(20px,4vw,60px)">
-    <div class="philo-bg" aria-hidden="false"><img src={images.philosophy} alt="青空を見上げて笑顔を浮かべる若い男女" width="1400" height="643" loading="lazy" decoding="async" /></div>
-    <div class="wrap">
-      <div class="philo-grid">
-        <div data-reveal>
-          <p class="eyebrow">企業理念 / PHILOSOPHY</p>
-          <h2 class="philo-title">一笑懸命</h2>
-          <p class="lead">笑いながら、全力で。私たちは「一笑懸命」を企業理念に、若者の未来に光を届けます。</p>
-          <dl class="mvv-list">
-            <div><dt>MISSION</dt><dd>若者に選択肢を提供し、希望や可能性を届ける。</dd></div>
-            <div><dt>VISION</dt><dd>一人ひとりが光を放ち、その光が社会を照らす。</dd></div>
-            <div><dt>VALUE</dt><dd>Be Rays — 自ら輝き、周囲を照らす存在であれ。</dd></div>
-          </dl>
-          <a class="btn btn-secondary" href="/philosophy/">企業理念を見る <span aria-hidden="true">→</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <Curve from="beige" to="navy" variant="3" over />
-
-  <section class="bg-navy section" id="business" style="padding-top:clamp(30px,5vw,70px)">
+  <section class="bg-navy section" id="business" style="padding-top:clamp(55px,7vw,89px)">
     <div class="wrap">
       <div class="biz-head" data-reveal>
         <p class="eyebrow">事業内容 / BUSINESS</p>
@@ -53,7 +32,7 @@ import { history, images, company } from '../data/site';
         <div class="cards">
           {domains.map((d, i) => (
             <a class="pcard" href={`/business/#${d.id}`} data-reveal style={`--d:${i * 0.08}s`}>
-              <img src={d.topPhoto ?? d.photo} alt="" loading="lazy" decoding="async" width="900" height={d.topPhoto?.includes("technology") ? 1350 : 1200} />
+              <img src={d.photo} alt="" loading="lazy" decoding="async" width="900" height={d.id === "technology" ? 1350 : 1200} />
               <div class="info">
                 <div class="ja">{d.ja}</div>
                 <div class="en">{d.en}</div>
