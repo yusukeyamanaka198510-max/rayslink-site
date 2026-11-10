@@ -22,17 +22,8 @@ import { history, images, company } from '../data/site';
     <div class="hero-bg" aria-hidden="true"><img src={images.hero} alt="" width="1795" height="876" fetchpriority="high" decoding="async" /><span class="hero-mark"></span></div>
   </section>
 
-  <section class="bg-navy" id="business" style="padding-top:clamp(55px,7vw,89px);padding-bottom:clamp(21px,3vw,34px)">
-    <div class="wrap">
-      <div class="biz-head" data-reveal>
-        <p class="eyebrow">事業内容 / BUSINESS</p>
-        <h2 class="h-xl" style="margin-top:20px">事業内容</h2>
-        <p class="lead" style="margin-top:21px;max-width:36em">教育、宿泊、サステナビリティ、IT・デジタルの4領域で展開する自社事業と、提携先とともに取り組む提携事業をご紹介します。</p>
-      </div>
-    </div>
-  </section>
   <Curve from="navy" to="beige" variant="2" />
-  <BusinessSections />
+  <BusinessSections intro />
   <Curve from="navy" to="beige" variant="4" />
 
   <section class="bg-beige" id="about" style="padding-top:clamp(24px,4vw,56px);padding-bottom:clamp(30px,5vw,60px)">

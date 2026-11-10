@@ -2,10 +2,20 @@
 // 事業内容の本体（4領域の写真・事業の説明・提携事業）。TOPと事業内容ページの両方から使う。
 import Curve from './Curve.astro';
 import { domains, partners } from '../data/business';
+// intro=true：TOP用。最初の領域（教育）のセクション上部に、見出しと説明文を結合して表示する
+const { intro = false } = Astro.props;
 ---
   {domains.map((d, i) => (
     <section class={`bsec ${i % 2 ? 'flip' : ''} ${i % 2 ? 'bg-ivory' : 'bg-beige'}`} id={d.id}>
       <div class="wrap">
+        {intro && i === 0 && (
+          <div class="biz-intro" data-reveal>
+            <span id="business" class="anchor"></span>
+            <p class="eyebrow">事業内容 / BUSINESS</p>
+            <h2 class="h-xl" style="margin-top:20px">事業内容</h2>
+            <p class="lead" style="margin-top:21px;max-width:36em">教育、宿泊、サステナビリティ、IT・デジタルの4領域で展開する自社事業と、提携先とともに取り組む提携事業をご紹介します。</p>
+          </div>
+        )}
         <div class="brow">
           <div class="bphoto" data-reveal>
             <img src={d.photo} alt={d.photoPlaceholder ? `${d.en}のイメージ（仮画像）` : `${d.ja}のイメージ画像`} loading="lazy" width="900" height="1100" />
