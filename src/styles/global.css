@@ -366,3 +366,9 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 
 /* 企業理念の写真：下端を下の波（ネイビー）の下まで伸ばし、平らな切れ目やベージュの隙間をなくす（波が上に重なる） */
 .philo-photo{margin-bottom:-56px}
+
+/* TOPの事業内容カード：縦長の写真。人物の顔・回収の網が切れないよう、写真ごとに表示位置を調整 */
+.pcard img[src*="biz-education"]{object-position:50% 35%}
+.pcard img[src*="biz-hospitality"]{object-position:50% 55%}
+.pcard img[src*="biz-sustainability"]{object-position:50% 40%}
+.pcard img[src*="biz-technology"]{object-position:50% 25%}
