@@ -462,3 +462,40 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 @media (max-width:860px){.bphoto,.bsec.flip .bphoto{border-radius:21px 55px 21px 55px}.bsec.flip .bphoto{border-radius:55px 21px 55px 21px}}
 @media (max-width:760px){.footer .cols{grid-template-columns:1fr}.about-top{grid-template-columns:1fr}}
 @media (max-width:860px){.about-top{grid-template-columns:1fr}}
+
+/* TOP企業理念：高さの固定をやめ内容に合わせる／写真は幅38.2%（黄金比の小さい側）／文字を大きく／MISSION・VISION・VALUEと価値観を掲載 */
+.philo{min-height:0}
+.philo>.wrap{padding-block:clamp(55px,7vw,89px)}
+.philo-bg{width:min(38.2%,640px)}
+.philo-bg img{object-position:72% 26%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24%),linear-gradient(180deg,transparent 0,#000 20%)}
+.philo-grid>div:first-child{max-width:min(660px,56vw)}
+.philo .philo-title{margin-top:18px;font-weight:900;line-height:1.15;letter-spacing:-.01em;font-size:clamp(2.618rem,5.6vw,4.236rem)}
+.philo .lead{margin:21px 0 34px;max-width:32em;font-size:clamp(1.05rem,1.55vw,1.272rem)}
+.mvv-list{margin:0 0 28px;border-top:1.5px solid var(--line)}
+.mvv-list>div{display:grid;grid-template-columns:7.2em 1fr;gap:13px;padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.mvv-list dt{font-weight:900;font-size:.8rem;letter-spacing:.2em;color:var(--sub)}
+.mvv-list dd{margin:0;font-weight:700;font-size:clamp(1.05rem,1.5vw,1.272rem);line-height:1.6}
+.kw-inline{display:flex;flex-wrap:wrap;gap:8px 13px;margin:0 0 34px;padding:0;list-style:none}
+.kw-inline li{padding:7px 18px;border-radius:999px;border:1.5px solid var(--navy);font-weight:800;font-size:.9rem}
+@media (max-width:860px){
+  .philo>.wrap{padding-bottom:21px}
+  .philo-bg{width:100%;height:clamp(240px,64vw,360px)}
+  .mvv-list>div{grid-template-columns:1fr;gap:2px}
+}
+
+/* TOP企業理念：縦を詰める（価値観のタグはTOPから外し企業理念ページで紹介）／顔が切れないよう写真を右寄せ／スマホは文章を全幅 */
+.philo>.wrap{padding-block:clamp(34px,4.6vw,55px)}
+.philo .philo-title{margin-top:13px;font-size:clamp(2.618rem,5.2vw,3.9rem)}
+.philo .lead{margin:13px 0 21px}
+.mvv-list{margin:0 0 26px}
+.mvv-list>div{padding:11px 0}
+.philo-bg img{object-position:100% 22%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 11%),linear-gradient(180deg,transparent 0,#000 16%)}
+@media (max-width:860px){.philo-grid>div:first-child{max-width:none}.philo>.wrap{padding-bottom:21px}.philo-bg img{object-position:92% 24%;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%)}}
+/* 2人の顔が揃って見えるよう、PCの写真幅を44%に（38.2%では男性の顔が隠れるため） */
+@media (min-width:861px){.philo-bg{width:min(44%,660px)}.philo-grid>div:first-child{max-width:min(620px,50vw)}.philo-bg img{object-position:100% 22%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%),linear-gradient(180deg,transparent 0,#000 16%)}}
+/* 男性・女性の顔が揃うよう、写真を2人の中心（元画像の約78%位置）に合わせて表示し、写真幅を広げる。左端は顔にかからない短さでぼかす */
+@media (min-width:861px){
+  .philo-bg{width:min(52%,780px)}
+  .philo-bg img{object-position:78% 22%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%),linear-gradient(180deg,transparent 0,#000 16%)}
+  .philo-grid>div:first-child{max-width:min(600px,46vw)}
+}
