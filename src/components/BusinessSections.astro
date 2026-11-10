@@ -18,8 +18,8 @@ const { intro = false } = Astro.props;
     )}
 
     <div class="seg-list">
-      {domains.map((d, i) => (
-        <details class="seg" id={d.id} open={i === 0} data-reveal>
+      {domains.map((d) => (
+        <details class="seg" id={d.id} data-reveal>
           <summary class="seg-head"><span class="dot" aria-hidden="true"></span><span class="seg-title"><span class="seg-en">{d.en}</span><span class="seg-ja">{d.ja}</span></span><span class="seg-toggle" aria-hidden="true"></span></summary>
           <div class="seg-body">
             <div class={`seg-text${d.services.length > 1 ? " multi" : ""}`}>
