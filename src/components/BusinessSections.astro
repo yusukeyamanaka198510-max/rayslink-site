@@ -5,7 +5,8 @@ import { domains, partners } from '../data/business';
 // intro=true：TOP用。「Business／事業内容」の見出しと導入文を先頭に表示する
 const { intro = false } = Astro.props;
 ---
-<section class="biz bg-navy">
+<!-- biz--bleed：横線と写真を画面端まで伸ばす（案A）。このクラスを外すと、線も写真も文章と同じ幅の中に収まる（案B） -->
+<section class="biz biz--bleed bg-navy">
   <div class="wrap">
     {intro && (
       <header class="biz-head" data-reveal>

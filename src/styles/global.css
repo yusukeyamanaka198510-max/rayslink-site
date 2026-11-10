@@ -446,7 +446,7 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .seg-text{position:relative;z-index:2;max-width:min(560px,52%)}
 .seg-head{position:relative;z-index:3}
 /* 写真：行の上端から下端まで一杯・右端（画面端）まで。左端と上下端をネイビーへ透けるグラデーションでなじませる */
-.seg-photo{position:absolute;z-index:0;top:0;bottom:0;right:calc(50% - 50vw);width:min(56vw,860px);overflow:hidden;pointer-events:none;
+.seg-photo{position:absolute;z-index:0;top:0;bottom:0;right:0;width:min(58%,640px);overflow:hidden;pointer-events:none;
   -webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 24%,#000 52%),linear-gradient(180deg,transparent 0,#000 16%,#000 84%,transparent 100%);
   -webkit-mask-composite:source-in;
   mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 24%,#000 52%),linear-gradient(180deg,transparent 0,#000 16%,#000 84%,transparent 100%);
@@ -470,3 +470,12 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 /* 開閉ボタンは写真の上でも見えるよう、ネイビーの半透明の背景と明るい枠線を付ける */
 .seg-toggle{background:rgba(20,37,59,.62);border-color:rgba(248,242,234,.85);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
 .seg-head:hover .seg-toggle{background:rgba(20,37,59,.85)}
+
+/* ===== 案A（biz--bleed）：横線を画面の左端〜右端まで、写真を画面の右端まで伸ばす。クラスを外すと案B（すべて文章と同じ幅の中） ===== */
+.biz--bleed .seg{border-top:0}
+.biz--bleed .seg::before{content:"";position:absolute;z-index:1;top:0;left:calc(50% - 50vw);right:calc(50% - 50vw);height:1px;background:rgba(248,242,234,.28);pointer-events:none}
+.biz--bleed .seg-list{border-bottom:0;position:relative}
+.biz--bleed .seg-list::after{content:"";position:absolute;bottom:0;left:calc(50% - 50vw);right:calc(50% - 50vw);height:1px;background:rgba(248,242,234,.28);pointer-events:none}
+@media (min-width:861px){
+  .biz--bleed .seg-photo{right:calc(50% - 50vw);width:min(56vw,860px)}
+}
