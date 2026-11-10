@@ -492,3 +492,22 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
   /* メニューバー：ロゴの左端が文字の左端（--gutter）に、「お問い合わせ」の右端が右の余白にそろう。内側の余白26px分だけ外へ出す */
   .header{width:calc(100% - 2 * (var(--gutter) - 26px))}
 }
+
+/* ① 最初の画面の文字を下げる（PC）。画面の高さに連動、最大でもボタンが最初の画面に収まる範囲 */
+@media (min-width:861px){.hero{padding-top:clamp(150px,18.5vh,210px)}}
+/* ② 事業名を大きく。2つ以上の事業がある領域（教育・IT・デジタル）は、事業を横に並べる */
+.seg-svc h4{font-size:clamp(1.618rem,2.4vw,2.058rem);line-height:1.35}
+@media (min-width:861px){
+  .seg-text.multi{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(34px,3.4vw,55px);max-width:min(900px,58%);align-items:start}
+  .seg-text.multi .seg-svc{padding-bottom:0}
+}
+/* ③ 宿泊の写真（横長）の表示位置 */
+.seg-photo img[src*="biz-hospitality"]{object-position:55% 50%}
+/* 調整：文字を下げた分、ボタンまわりの余白を詰めて最初の画面に収める／事業名は「親子で学べるお金の学校」が1行に収まる大きさ／写真の上でも読めるよう文字に影 */
+@media (min-width:861px){
+  .hero .jp{margin-top:21px;gap:13px}
+  .hero .btns{margin-top:26px}
+  .hero .jp .name{padding-top:21px}
+}
+.seg-svc h4{font-size:clamp(1.5rem,2vw,1.85rem);word-break:auto-phrase}
+.seg-text{text-shadow:0 1px 14px rgba(20,37,59,.85)}

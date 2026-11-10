@@ -22,7 +22,7 @@ const { intro = false } = Astro.props;
         <details class="seg" id={d.id} open={i === 0} data-reveal>
           <summary class="seg-head"><span class="dot" aria-hidden="true"></span><span class="seg-title"><span class="seg-en">{d.en}</span><span class="seg-ja">{d.ja}</span></span><span class="seg-toggle" aria-hidden="true"></span></summary>
           <div class="seg-body">
-            <div class="seg-text">
+            <div class={`seg-text${d.services.length > 1 ? " multi" : ""}`}>
               {d.services.map((s) => (
                 <div class="seg-svc">
                   <h4>{s.name}</h4>
@@ -33,7 +33,7 @@ const { intro = false } = Astro.props;
               ))}
             </div>
             <div class="seg-photo">
-              <img src={d.photo} alt={d.photoPlaceholder ? `${d.en}のイメージ（仮画像）` : `${d.ja}のイメージ画像`} loading="lazy" decoding="async" width="900" height={d.id === "technology" ? 1350 : 1200} />
+              <img src={d.photo} alt={d.photoPlaceholder ? `${d.en}のイメージ（仮画像）` : `${d.ja}のイメージ画像`} loading="lazy" decoding="async" width="900" height={d.id === "technology" ? 1350 : d.id === "hospitality" ? 1050 : 1200} />
               {d.photoPlaceholder && <span class="tag">仮画像</span>}
             </div>
           </div>
