@@ -485,3 +485,10 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .biz--bleed .seg-text{max-width:min(620px,48%)}
 .biz--bleed .biz-head{max-width:none}
 @media (max-width:860px){.biz--bleed .seg-text{max-width:none}}
+
+/* 最初の画面：文字を画面の左端側（左右の余白だけ残した位置）から始め、メニューバーも同じ余白まで広げる（PC）。事業内容（案A）と文字の左端がそろう */
+@media (min-width:861px){
+  .hero>.wrap{max-width:none}
+  /* メニューバー：ロゴの左端が文字の左端（--gutter）に、「お問い合わせ」の右端が右の余白にそろう。内側の余白26px分だけ外へ出す */
+  .header{width:calc(100% - 2 * (var(--gutter) - 26px))}
+}
