@@ -131,10 +131,6 @@ section{position:relative}
 /* PHILOSOPHY(TOP) */
 
 /* BUSINESS(TOP) */
-.biz-head{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(20px,4vw,64px);align-items:end;margin-bottom:clamp(30px,4.5vw,56px)}
-.biz-head .h-xl{color:var(--light)}
-.biz-head .lead{margin-bottom:22px}
-@media (max-width:860px){.biz-head{grid-template-columns:1fr}}
 
 /* ABOUT(TOP) */
 .about-top{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(24px,5vw,80px);align-items:start}
@@ -395,7 +391,6 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 @media (max-width:860px){.bphoto{aspect-ratio:1.272/1}}
 
 /* 見出しとカードの間・カード下の説明（事業内容） */
-.biz-head{display:block;margin-bottom:clamp(34px,4.5vw,55px)}
 
 /* --- 黄金比適用後の調整 --- */
 /* テキストリンクにはボタンの余白を入れない */
@@ -436,3 +431,7 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .bphoto img[src*="biz-technology"]{object-position:50% 26%}
 .bphoto{aspect-ratio:1.272/1}
 @media (max-width:860px){.bphoto{aspect-ratio:1/1}}
+
+/* TOP：事業内容の見出しは、最初の領域（教育）のセクションに結合 */
+.biz-intro{margin-bottom:clamp(34px,5vw,55px);position:relative}
+.biz-intro .anchor{position:absolute;top:calc(-1 * clamp(89px,10vw,144px));left:0;width:1px;height:1px}
