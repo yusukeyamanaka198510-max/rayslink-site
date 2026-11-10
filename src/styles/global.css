@@ -307,7 +307,7 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .policy p{color:var(--navy);line-height:2;margin:0 0 1em;font-size:clamp(.95rem,1.3vw,1.02rem)}
 .policy section{scroll-margin-top:96px}
 .policy h2{font-size:clamp(1.1rem,2vw,1.35rem);font-weight:800;line-height:1.5;margin:clamp(32px,5vw,52px) 0 14px;padding-top:clamp(22px,3vw,30px);border-top:1.5px solid var(--line)}
-.policy ol{margin:0 0 1em;padding-left:1.7em;display:grid;gap:.45em}
+.policy ol,.policy ul{margin:0 0 1em;padding-left:1.7em;display:grid;gap:.45em}
 .policy li{line-height:1.9;font-size:clamp(.95rem,1.3vw,1.02rem);padding-left:.2em}
 .policy a{text-underline-offset:3px}
 .policy .contact-block{font-style:normal;margin:18px 0 0;padding:22px 24px;border-radius:16px;background:var(--beige);box-shadow:var(--shadow-in)}
