@@ -431,8 +431,8 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .seg-toggle::after{transform:translate(-50%,-50%) rotate(90deg)}
 .seg[open] .seg-toggle::after{transform:translate(-50%,-50%) rotate(0)}
 .seg-head:hover .seg-toggle{background:rgba(248,242,234,.12);border-color:var(--light)}
-.seg-body{display:grid;grid-template-columns:1.618fr 1fr;gap:clamp(34px,5vw,89px);align-items:start;padding:0 0 clamp(34px,5vw,55px) calc(13px + clamp(13px,2vw,21px))}
-.seg-body-solo{grid-template-columns:1fr}
+.seg-body{display:block;padding:0 0 clamp(34px,5vw,55px) calc(13px + clamp(13px,2vw,21px))}
+.seg-body-solo{display:block}
 .seg-svc{padding:0 0 clamp(21px,3vw,34px)}
 .seg-svc:last-child{padding-bottom:0}
 .seg-svc h4{font-size:1.272rem;font-weight:800;line-height:1.5;margin:0}
@@ -441,7 +441,16 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .seg-svc .ext{margin-top:10px}
 .seg-svc .ext a{display:inline-flex;gap:8px;align-items:center;font-weight:700;font-size:.9rem;color:var(--light);text-decoration:none;border-bottom:1.5px solid rgba(248,242,234,.55);padding-bottom:2px;min-height:24px}
 .seg-svc .ext a:hover{border-bottom-color:var(--light)}
-.seg-photo{position:relative;aspect-ratio:1.618/1;overflow:hidden}
+.seg{position:relative}
+.seg[open]{min-height:clamp(380px,32vw,480px)}
+.seg-text{position:relative;z-index:2;max-width:min(560px,52%)}
+.seg-head{position:relative;z-index:3}
+/* 写真：行の上端から下端まで一杯・右端（画面端）まで。左端と上下端をネイビーへ透けるグラデーションでなじませる */
+.seg-photo{position:absolute;z-index:0;top:0;bottom:0;right:calc(50% - 50vw);width:min(56vw,860px);overflow:hidden;pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 24%,#000 52%),linear-gradient(180deg,transparent 0,#000 16%,#000 84%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 24%,#000 52%),linear-gradient(180deg,transparent 0,#000 16%,#000 84%,transparent 100%);
+  mask-composite:intersect}
 .seg-photo img{width:100%;height:100%;object-fit:cover}
 .seg-photo .tag{position:absolute;left:12px;top:12px;background:var(--ivory);color:var(--navy);padding:4px 12px;border-radius:999px;font-size:.7rem;font-weight:800;letter-spacing:.18em}
 .seg-photo img[src*="biz-education"]{object-position:50% 34%}
@@ -450,8 +459,14 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .seg-photo img[src*="biz-technology"]{object-position:50% 26%}
 .seg-partners .seg-body{padding-bottom:clamp(21px,3vw,34px)}
 @media (max-width:860px){
-  .seg-body{grid-template-columns:1fr;padding-left:0;gap:21px}
-  .seg-photo{order:2;aspect-ratio:1.618/1}
+  .seg-body{padding-left:0}
+  .seg[open]{min-height:0}
+  .seg-text{max-width:none}
+  .seg-photo{position:relative;right:auto;top:auto;bottom:auto;width:auto;margin:21px calc(-1 * var(--gutter)) 0;aspect-ratio:1.618/1;
+    -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 24%,#000 78%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 24%,#000 78%,transparent 100%);-webkit-mask-composite:source-over;mask-composite:add}
 }
 @media (prefers-reduced-motion:reduce){.seg-toggle,.seg-toggle::before,.seg-toggle::after{transition:none}}
 .seg-svc .d{max-width:40em;text-wrap:pretty}
+/* 開閉ボタンは写真の上でも見えるよう、ネイビーの半透明の背景と明るい枠線を付ける */
+.seg-toggle{background:rgba(20,37,59,.62);border-color:rgba(248,242,234,.85);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.seg-head:hover .seg-toggle{background:rgba(20,37,59,.85)}
