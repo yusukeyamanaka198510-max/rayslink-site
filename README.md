@@ -27,3 +27,6 @@ npm run build                # ビルド（@astrojs/vercel。/api/contact はサ
 ## ページ構成メモ
 TOPは「ヒーロー → 事業内容（事業内容ページの中身をそのまま掲載）→ 会社概要 → お問い合わせ」。事業内容の本体は `src/components/BusinessSections.astro`（4領域の写真・説明・提携事業）で、TOPと `/business/` の両方から使う。文章・写真・URLは `src/data/business.ts` を直す。
 企業理念（MISSION／VISION／VALUE・価値観）は企業理念ページに集約し、写真はその最上部に使用。
+
+## 事業内容セクションの作り
+写真はセクションの半分に上から下まで敷き（枠・角丸なし）、説明は区切り線で並べる。説明文は事業主提供の内容を約60〜75字に短縮したもの（`src/data/business.ts`）。1領域ごとに左右を交互に配置（教育＝写真が右）。

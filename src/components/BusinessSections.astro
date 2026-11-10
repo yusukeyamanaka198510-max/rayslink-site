@@ -6,31 +6,32 @@ import { domains, partners } from '../data/business';
 const { intro = false } = Astro.props;
 ---
   {domains.map((d, i) => (
-    <section class={`bsec ${i % 2 ? 'flip' : ''} ${i % 2 ? 'bg-ivory' : 'bg-beige'}`} id={d.id}>
-      <div class="wrap">
-        {intro && i === 0 && (
+    <section class={`bsec ${i % 2 === 0 ? 'flip' : ''} ${i % 2 ? 'bg-ivory' : 'bg-beige'}`} id={d.id}>
+      {intro && i === 0 && (
+        <div class="wrap">
           <div class="biz-intro" data-reveal>
             <span id="business" class="anchor"></span>
             <p class="eyebrow">事業内容 / BUSINESS</p>
             <h2 class="h-xl" style="margin-top:20px">事業内容</h2>
-            <p class="lead" style="margin-top:21px;max-width:36em">教育、宿泊、サステナビリティ、IT・デジタルの4領域で展開する自社事業と、提携先とともに取り組む提携事業をご紹介します。</p>
+            <p class="lead" style="margin-top:21px;max-width:30em">教育、宿泊、サステナビリティ、IT・デジタルの4領域で展開する自社事業と、提携先とともに取り組む提携事業をご紹介します。</p>
           </div>
-        )}
-        <div class="brow">
-          <div class="bphoto" data-reveal>
-            <img src={d.photo} alt={d.photoPlaceholder ? `${d.en}のイメージ（仮画像）` : `${d.ja}のイメージ画像`} loading="lazy" width="900" height="1100" />
-            {d.photoPlaceholder && <span class="tag">仮画像</span>}
-          </div>
-          <div>
-            <p class="eyebrow" data-reveal>{d.ja}</p>
-            <h2 class="en" data-reveal>{d.en}</h2>
-            <p class="lead" style="margin-top:8px" data-reveal>{d.lead}</p>
+        </div>
+      )}
+      <div class="bphoto" data-reveal>
+        <img src={d.photo} alt={d.photoPlaceholder ? `${d.en}のイメージ（仮画像）` : `${d.ja}のイメージ画像`} loading="lazy" decoding="async" width="900" height={d.id === "technology" ? 1350 : 1200} />
+        {d.photoPlaceholder && <span class="tag">仮画像</span>}
+      </div>
+      <div class="wrap">
+        <div class="btext">
+          <p class="eyebrow" data-reveal>{d.ja}</p>
+          <h2 class="en" data-reveal>{d.en}</h2>
+          <p class="lead" style="margin-top:8px" data-reveal>{d.lead}</p>
+          <div class="svc-list">
             {d.services.map((s) => (
-              <article class="svc matte" data-reveal>
+              <article class="svc" data-reveal>
                 <p class="k">{s.kind}{s.since ? `｜${s.since}` : ''}</p>
                 <h3>{s.name}</h3>
                 <p>{s.desc}</p>
-                <ul class="chips">{s.features.map((f) => <li>{f}</li>)}</ul>
                 {s.url && <p class="ext"><a class="btn btn-text" href={s.url} target="_blank" rel="noopener noreferrer">公式サイトを見る <span aria-hidden="true">↗</span><span class="sr-only">（外部サイトが新しいタブで開きます）</span></a></p>}
               </article>
             ))}
