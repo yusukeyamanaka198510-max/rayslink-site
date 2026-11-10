@@ -2,10 +2,11 @@
 import Base from '../layouts/Base.astro';
 import Curve from '../components/Curve.astro';
 import { images } from '../data/site';
+// MISSION／VISION／VALUE・価値観キーワードは確定コピー。日本語の副題は読みの表記（カタカナ）のみ。
 const items = [
-  { tag: 'MISSION', t: '若者に選択肢を提供し、希望や可能性を届ける。', r: false },
-  { tag: 'VISION', t: '一人ひとりが光を放ち、その光が社会を照らす。', r: true },
-  { tag: 'VALUE', t: 'Be Rays — 自ら輝き、周囲を照らす存在であれ。', r: false },
+  { en: 'Mission', ja: 'ミッション', t: '若者に選択肢を提供し、希望や可能性を届ける。' },
+  { en: 'Vision', ja: 'ビジョン', t: '一人ひとりが光を放ち、その光が社会を照らす。' },
+  { en: 'Value', ja: 'バリュー', t: 'Be Rays — 自ら輝き、周囲を照らす存在であれ。' },
 ];
 const kw = ['一笑懸命', '笑いながら全力疾走', '希望主義', 'Link the Future', '遊び心 × 本気'];
 ---
@@ -20,33 +21,24 @@ const kw = ['一笑懸命', '笑いながら全力疾走', '希望主義', 'Link
       </div>
     </div>
   </section>
-  <Curve from="beige" to="ivory" variant="3" />
 
-  <section class="section bg-ivory" style="padding-top:clamp(20px,4vw,60px)">
-    <div class="wrap mvv">
-      {items.map((i) => (
-        <div class={`matte vpanel ${i.r ? 'r' : ''}`} data-reveal>
-          <p class="tag">{i.tag}</p>
-          <p class="t">{i.t}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-  <Curve from="ivory" to="navy" variant="4" />
-
-  <section class="bg-navy" style="padding-bottom:clamp(60px,9vw,120px)">
+  <section class="biz biz--bleed bg-navy">
     <div class="wrap">
-      <p class="eyebrow" data-reveal>価値観 / KEYWORDS</p>
-      <h2 class="h-xl" style="margin-top:16px" data-reveal>大切にしている価値観</h2>
-      <ul class="kw">
-        {kw.map((k, n) => <li data-reveal style={`--d:${n * 0.08}s`}>{k}</li>)}
-      </ul>
-      <div class="cta-band">
-        <p class="h-lg" data-reveal>理念を、事業と会社のかたちで。</p>
-        <div class="btns" style="margin-top:24px" data-reveal>
-          <a class="btn btn-primary" href="/business/">事業内容 <span aria-hidden="true">→</span></a>
-          <a class="btn btn-secondary" href="/about/">会社概要</a>
+      <div class="seg-list">
+        {items.map((i) => (
+          <div class="seg seg-static" data-reveal>
+            <div class="seg-head"><span class="dot" aria-hidden="true"></span><span class="seg-title"><span class="seg-en">{i.en}</span><span class="seg-ja">{i.ja}</span></span></div>
+            <div class="seg-body"><p class="mvv-sentence">{i.t}</p></div>
+          </div>
+        ))}
+        <div class="seg seg-static" data-reveal>
+          <div class="seg-head"><span class="dot" aria-hidden="true"></span><span class="seg-title"><span class="seg-en">Keywords</span><span class="seg-ja">大切にしている価値観</span></span></div>
+          <div class="seg-body"><ul class="kw">{kw.map((k) => <li>{k}</li>)}</ul></div>
         </div>
+      </div>
+      <div class="btns" style="margin-top:55px" data-reveal>
+        <a class="btn btn-primary" href="/#business">事業内容を見る <span aria-hidden="true">→</span></a>
+        <a class="btn btn-text" href="/about/">会社概要へ →</a>
       </div>
     </div>
   </section>

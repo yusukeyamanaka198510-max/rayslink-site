@@ -133,20 +133,6 @@ section{position:relative}
 /* BUSINESS(TOP) */
 
 /* ABOUT(TOP) */
-.about-top{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(24px,5vw,80px);align-items:start}
-.htl{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:54px var(--gutter) 22px;margin:clamp(32px,5vw,56px) calc(var(--gutter)*-1) 0;position:relative;scrollbar-width:thin}
-.htl::before{content:"";position:absolute;left:var(--gutter);right:var(--gutter);top:32px;height:2px;background:var(--navy);opacity:.55}
-.htl li{flex:0 0 min(270px,78vw);scroll-snap-align:start;list-style:none;position:relative;padding:22px 22px 24px}
-.htl li::before{content:"";position:absolute;top:-28px;left:22px;width:14px;height:14px;border-radius:50%;background:var(--beige);border:3px solid var(--navy)}
-.htl .y{font-weight:900;font-size:1.8rem;letter-spacing:-.02em;line-height:1.2}
-.htl p{font-size:.88rem;color:var(--sub);margin-top:6px;line-height:1.7}
-@media (max-width:860px){.about-top{grid-template-columns:1fr}}
-@media (max-width:760px){
-  .htl{display:grid;overflow:visible;padding:8px 0 0 28px;margin:32px 0 0;gap:14px}
-  .htl::before{left:6px;right:auto;top:0;bottom:0;width:2px;height:auto}
-  .htl li{flex:none;padding:18px 20px}
-  .htl li::before{top:24px;left:-29px}
-}
 
 /* CONTACT CTA */
 .cta-sec{overflow:hidden;text-align:left}
@@ -179,11 +165,6 @@ section{position:relative}
 @media (max-width:640px){.vitem{grid-template-columns:1fr;gap:8px}}
 
 /* PHILOSOPHY(下層) */
-.mvv{display:grid;gap:clamp(20px,3vw,40px)}
-.vpanel{max-width:900px;padding:clamp(30px,5.5vw,68px)}
-.vpanel.r{margin-left:auto}
-.vpanel .tag{font-weight:900;letter-spacing:.3em;font-size:.82rem;color:var(--sub)}
-.vpanel .t{margin-top:12px;font-weight:900;font-size:clamp(1.7rem,4.2vw,3.1rem);line-height:1.4;text-wrap:balance}
 .kw{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;padding:0;list-style:none}
 .kw li{padding:13px 26px;border-radius:999px;font-weight:800;font-size:clamp(1rem,2vw,1.25rem);border:1.5px solid var(--light)}
 
@@ -244,11 +225,6 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 
 
 /* 会社の基本情報（TOP） */
-.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:0 28px;margin:26px 0 0}
-.facts div{display:grid;grid-template-columns:6.2em 1fr;gap:10px;padding:13px 0;border-bottom:1px solid var(--line)}
-.facts dt{font-weight:800;font-size:.8rem;letter-spacing:.1em;color:var(--sub)}
-.facts dd{margin:0;font-weight:600;font-size:.94rem;line-height:1.7}
-@media (max-width:640px){.facts{grid-template-columns:1fr}}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* プライバシーポリシー（読みやすさ重視） */
@@ -353,7 +329,6 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 @media (max-width:760px){.hero .btns .btn{min-height:55px;padding:0 34px}}
 
 /* 2列は 1.618 : 1 */
-.about-top{grid-template-columns:1fr 1.618fr}
 .footer .cols{grid-template-columns:1.618fr 1fr 1.272fr}
 .vitem{grid-template-columns:minmax(120px,1fr) 2.618fr}
 @media (max-width:860px){.vitem{grid-template-columns:1fr}}
@@ -369,8 +344,7 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .btn-text,.hero .btns .btn-text{padding:0;min-height:44px}
 /* 企業理念の写真：PCは幅61.8%、スマホは全幅（スマホ用の指定を上書きしない） */
 /* 事業内容ページの写真：角丸はフィボナッチ（21 / 89）。対角で大小を付け、flipで反転 */
-@media (max-width:760px){.footer .cols{grid-template-columns:1fr}.about-top{grid-template-columns:1fr}}
-@media (max-width:860px){.about-top{grid-template-columns:1fr}}
+@media (max-width:760px){.footer .cols{grid-template-columns:1fr}}
 
 /* TOP企業理念：高さの固定をやめ内容に合わせる／写真は幅38.2%（黄金比の小さい側）／文字を大きく／MISSION・VISION・VALUEと価値観を掲載 */
 
@@ -516,3 +490,13 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 @media (min-width:861px){.seg-text.multi{max-width:min(1000px,64%)}}
 /* 事業名が2行になる幅では、「親子で学べる／お金の学校」のように均等に折り返す */
 .seg-svc h4{text-wrap:balance}
+
+/* 企業理念ページ：TOPと同じレイアウト。最初のブロックは文字を画面の左端側から、続くMISSION／VISION／VALUE／価値観はネイビー一面の行（横線は画面の端まで） */
+.phero-photo-top>.wrap{max-width:none}
+.seg-static .seg-head{cursor:default}
+.seg-static .seg-body{padding-bottom:clamp(34px,5vw,55px)}
+.mvv-sentence{font-weight:800;font-size:clamp(1.5rem,2.6vw,2.4rem);line-height:1.55;max-width:min(900px,80%);text-wrap:balance}
+.seg-static .kw{margin-top:0}
+@media (max-width:860px){.mvv-sentence{max-width:none}}
+/* 提携事業の行は写真がないので、開いた行の最小高さを外して空白を詰める */
+.seg-partners .seg[open]{min-height:0}
