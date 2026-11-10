@@ -435,3 +435,7 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 /* TOP：事業内容の見出しは、最初の領域（教育）のセクションに結合 */
 .biz-intro{margin-bottom:clamp(34px,5vw,55px);position:relative}
 .biz-intro .anchor{position:absolute;top:calc(-1 * clamp(89px,10vw,144px));left:0;width:1px;height:1px}
+
+/* HERO直下：波の装飾は置かず、写真下端のネイビーの丘からそのままベージュへ。ヒーローの下の余白も詰める */
+.hero{padding-bottom:clamp(21px,3vw,34px)}
+.biz-intro{padding-top:0}
