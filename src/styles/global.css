@@ -511,3 +511,8 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 }
 .seg-svc h4{font-size:clamp(1.5rem,2vw,1.85rem);word-break:auto-phrase}
 .seg-text{text-shadow:0 1px 14px rgba(20,37,59,.85)}
+/* 事業名を1.2倍（1.5rem/2vw/1.85rem → 1.8rem/2.4vw/2.22rem）。横並びの2事業が1行に収まるよう列の幅を広げる */
+.seg-svc h4{font-size:clamp(1.8rem,2.4vw,2.22rem)}
+@media (min-width:861px){.seg-text.multi{max-width:min(1000px,64%)}}
+/* 事業名が2行になる幅では、「親子で学べる／お金の学校」のように均等に折り返す */
+.seg-svc h4{text-wrap:balance}
