@@ -43,3 +43,6 @@ PCでは、最初の画面の文字を画面の左端側（左右の余白 `--gu
 
 ## 宿泊（Hospitality）の写真
 `public/images/biz-hospitality.webp` は事業主提供の客室リビングの写真（横長 1400×1050）。実際の施設の写真の場合は、`BusinessSections.astro` の代替テキスト（現在は「宿泊のイメージ画像」）を、実際の施設名に合わせて直す。
+
+## 企業理念ページの配色
+上（最初のブロック）はネイビー、下（Mission〜Keywords）はベージュ。下のセクションは `biz--light` クラス（ベージュ面用の文字・線の色）。ネイビーに戻すには、`philosophy.astro` の該当セクションの `biz--light bg-beige` を `bg-navy` に、最初のブロックの `bg-navy` を外す。

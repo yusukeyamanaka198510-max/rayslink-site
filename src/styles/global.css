@@ -500,3 +500,13 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 @media (max-width:860px){.mvv-sentence{max-width:none}}
 /* 提携事業の行は写真がないので、開いた行の最小高さを外して空白を詰める */
 .seg-partners .seg[open]{min-height:0}
+
+/* 企業理念ページ：上（最初のブロック）をネイビー、下（MISSION〜価値観）をベージュにする。ベージュ面用に文字・横線・点の色を切り替え（biz--light） */
+.phero-photo-top.bg-navy{background:var(--navy);color:var(--light)}
+.phero-photo-top.bg-navy .lead{color:rgba(248,242,234,.86)}
+.biz--light{color:var(--navy)}
+.biz--light .seg,.biz--light .seg-list{border-color:rgba(20,37,59,.22)}
+.biz--light.biz--bleed .seg::before,.biz--light.biz--bleed .seg-list::after{background:rgba(20,37,59,.22)}
+.biz--light .seg-ja{color:var(--sub)}
+.biz--light .kw li{border-color:var(--navy)}
+.biz--light .seg-text{text-shadow:none}
