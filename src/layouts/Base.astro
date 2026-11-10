@@ -4,7 +4,7 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 interface Props { title: string; description: string; path: string; noindex?: boolean }
 const { title, description, path, noindex = false } = Astro.props;
-const full = path === '/' ? '株式会社Rays link | 一笑懸命。' : `${title} | 株式会社Rays link`;
+const full = path === '/' ? '株式会社Rays link | 教育、宿泊、環境、IT、デジタルの事業会社' : `${title} | 株式会社Rays link`;
 const url = new URL(path, Astro.site).toString();
 const og = new URL('/og-default.svg', Astro.site).toString();
 ---
@@ -18,7 +18,11 @@ const og = new URL('/og-default.svg', Astro.site).toString();
   <meta name="description" content={description} />
   <link rel="canonical" href={url} />
   {noindex && <meta name="robots" content="noindex" />}
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon-light-32.png" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icon-dark-32.png" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-light-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="株式会社Rays link" />
   <meta property="og:title" content={full} />
