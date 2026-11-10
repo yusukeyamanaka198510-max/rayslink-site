@@ -8,9 +8,13 @@ const items = [
   { en: 'Vision', ja: 'ビジョン', t: '一人ひとりが光を放ち、その光が社会を照らす。' },
   { en: 'Value', ja: 'バリュー', t: 'Be Rays — 自ら輝き、周囲を照らす存在であれ。' },
 ];
-const kw = ['一笑懸命', '笑いながら全力疾走', '希望主義', 'Link the Future', '遊び心 × 本気'];
+// Message（会社の思い）：確定コピー（企業理念・MISSION・VISION・価値観・事業の説明）の言葉のみで構成した下書き。新しい事実は含めない。
+const message = [
+  '笑いながら、全力で。私たちRays linkは、「一笑懸命」を企業理念に、金融教育・宿泊・IT・デジタルなどの様々な事業を展開しています。',
+  '人生に希望と可能性を。若者に選択肢を提供し、一人ひとりが光を放ち、その光が社会を照らす。そんな未来をめざして、遊び心と本気で、希望を信じて走り続けます。',
+];
 ---
-<Base title="企業理念" path="/philosophy/" description="株式会社Rays linkの企業理念「一笑懸命。」と、MISSION・VISION・VALUE、大切にする価値観をご紹介します。">
+<Base title="企業理念" path="/philosophy/" description="株式会社Rays linkの企業理念「一笑懸命。」と、MISSION・VISION・VALUE、私たちの思い（メッセージ）をご紹介します。">
   <section class="phero phero-photo-top bg-navy">
     <div class="phero-bg"><img src={images.philosophy} alt="青空を見上げて笑顔を浮かべる若い男女" width="1400" height="643" fetchpriority="high" decoding="async" /></div>
     <div class="wrap">
@@ -32,8 +36,8 @@ const kw = ['一笑懸命', '笑いながら全力疾走', '希望主義', 'Link
           </div>
         ))}
         <div class="seg seg-static" data-reveal>
-          <div class="seg-head"><span class="dot" aria-hidden="true"></span><span class="seg-title"><span class="seg-en">Keywords</span><span class="seg-ja">大切にしている価値観</span></span></div>
-          <div class="seg-body"><ul class="kw">{kw.map((k) => <li>{k}</li>)}</ul></div>
+          <div class="seg-head"><span class="dot" aria-hidden="true"></span><span class="seg-title"><span class="seg-en">Message</span><span class="seg-ja">私たちの思い</span></span></div>
+          <div class="seg-body">{message.map((m) => <p class="msg">{m}</p>)}</div>
         </div>
       </div>
       <div class="btns" style="margin-top:55px" data-reveal>
