@@ -160,23 +160,12 @@ section{position:relative}
 
 /* BUSINESS(下層) */
 .bsec{padding-block:clamp(56px,8vw,110px)}
-.brow{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,5vw,80px);align-items:center}
-.bsec.flip .brow{direction:rtl}
-.bsec.flip .brow>*{direction:ltr}
-.bphoto{overflow:hidden;aspect-ratio:4/4.4;position:relative;border-radius:58% 42% 40% 60% / 52% 48% 52% 48%;box-shadow:var(--shadow)}
-.bsec.flip .bphoto{border-radius:42% 58% 60% 40% / 48% 52% 48% 52%}
-.bphoto img{width:100%;height:100%;object-fit:cover}
-.bphoto .tag{position:absolute;left:50%;transform:translateX(-50%);bottom:8%;background:var(--ivory);padding:6px 14px;border-radius:999px;font-size:.7rem;font-weight:800;letter-spacing:.18em}
 .bsec .en{font-weight:900;font-size:clamp(2.4rem,6.4vw,5rem);line-height:1.12;letter-spacing:-.03em;padding-bottom:.08em}
 .svc{margin-top:18px;padding:22px 24px}
 .svc h3{font-size:1.18rem;font-weight:800;line-height:1.5}
 .svc .k{font-size:.76rem;font-weight:700;color:var(--sub);letter-spacing:.06em}
 .svc p{font-size:.94rem;margin-top:8px;color:var(--sub)}
 .bg-navy .svc p,.bg-navy .svc .k{color:rgba(248,242,234,.78)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;padding:0;list-style:none}
-.chips li{font-size:.74rem;font-weight:700;padding:4px 12px;border-radius:999px;border:1px solid var(--line)}
-.bg-navy .chips li{border-color:var(--line-on-navy)}
-@media (max-width:860px){.brow{grid-template-columns:1fr}.bsec.flip .brow{direction:ltr}.bphoto{aspect-ratio:4/3.4}}
 .badge{display:inline-block;background:var(--beige);color:var(--navy);font-weight:800;font-size:.74rem;letter-spacing:.22em;padding:6px 16px;border-radius:999px}
 .pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:32px}
 .pgrid .svc{margin:0}
@@ -378,17 +367,14 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 @media (max-width:760px){.hero .btns .btn{min-height:55px;padding:0 34px}}
 
 /* 2列は 1.618 : 1 */
-.brow{grid-template-columns:1.618fr 1fr;gap:clamp(34px,5.5vw,89px)}
 .about-top{grid-template-columns:1fr 1.618fr}
 .footer .cols{grid-template-columns:1.618fr 1fr 1.272fr}
 .vitem{grid-template-columns:minmax(120px,1fr) 2.618fr}
-@media (max-width:860px){.brow{grid-template-columns:1fr}.vitem{grid-template-columns:1fr}}
+@media (max-width:860px){.vitem{grid-template-columns:1fr}}
 
 /* 事業内容カード：幅 1 : 高さ 1.618 */
 
 /* 写真：横長は 1.618 : 1 */
-.bphoto{aspect-ratio:1.618/1}
-@media (max-width:860px){.bphoto{aspect-ratio:1.272/1}}
 
 /* 見出しとカードの間・カード下の説明（事業内容） */
 
@@ -397,9 +383,6 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .btn-text,.hero .btns .btn-text{padding:0;min-height:44px}
 /* 企業理念の写真：PCは幅61.8%、スマホは全幅（スマホ用の指定を上書きしない） */
 /* 事業内容ページの写真：角丸はフィボナッチ（21 / 89）。対角で大小を付け、flipで反転 */
-.bphoto,.bsec.flip .bphoto{border-radius:21px 89px 21px 89px}
-.bsec.flip .bphoto{border-radius:89px 21px 89px 21px}
-@media (max-width:860px){.bphoto,.bsec.flip .bphoto{border-radius:21px 55px 21px 55px}.bsec.flip .bphoto{border-radius:55px 21px 55px 21px}}
 @media (max-width:760px){.footer .cols{grid-template-columns:1fr}.about-top{grid-template-columns:1fr}}
 @media (max-width:860px){.about-top{grid-template-columns:1fr}}
 
@@ -425,17 +408,42 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
   .phero-bg img{object-position:90% 24%;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 18%);mask-image:linear-gradient(180deg,transparent 0,#000 18%)}
 }
 /* 事業内容ページの写真：縦長の写真なので、人物の顔が切れないよう写真ごとに位置を調整 */
+
+/* TOP：事業内容の見出しは、最初の領域（教育）のセクションに結合 */
+
+/* HERO直下：波の装飾は置かず、写真下端のネイビーの丘からそのままベージュへ。ヒーローの下の余白も詰める */
+.hero{padding-bottom:clamp(21px,3vw,34px)}
+
+/* 事業内容（4領域）：写真はセクションの半分に上から下まで敷き（枠・角丸・影なし）、説明の高さと必ず一致させる。説明は区切り線で並べる */
+.bsec{position:relative;overflow:hidden;padding-block:clamp(55px,6vw,89px);min-height:clamp(480px,42vw,640px)}
+.bsec>.wrap{position:relative;z-index:2}
+.bphoto{position:absolute;z-index:0;top:0;bottom:0;width:50%;overflow:hidden}
+.bphoto img{width:100%;height:100%;object-fit:cover}
+.bsec.flip .bphoto{right:0;-webkit-mask-image:linear-gradient(270deg,#000 0,#000 90%,transparent 100%);mask-image:linear-gradient(270deg,#000 0,#000 90%,transparent 100%)}
+.bsec:not(.flip) .bphoto{left:0;-webkit-mask-image:linear-gradient(90deg,#000 0,#000 90%,transparent 100%);mask-image:linear-gradient(90deg,#000 0,#000 90%,transparent 100%)}
+.bsec.flip .bphoto{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 10%);mask-image:linear-gradient(90deg,transparent 0,#000 10%)}
+.bphoto .tag{position:absolute;left:50%;transform:translateX(-50%);bottom:8%;background:var(--ivory);padding:6px 14px;border-radius:999px;font-size:.7rem;font-weight:800;letter-spacing:.18em}
+.btext{width:calc(50% - 34px)}
+.bsec:not(.flip) .btext{margin-left:calc(50% + 34px)}
+.bsec .en{font-weight:900;font-size:clamp(2.058rem,4.6vw,3.33rem);line-height:1.12;letter-spacing:-.03em;padding-bottom:.08em}
+.svc-list{margin-top:21px}
+.svc-list .svc{margin:0;padding:18px 0 20px;border-top:1px solid var(--line);border-radius:0;background:none;box-shadow:none}
+.svc-list .svc:last-child{border-bottom:1px solid var(--line)}
+.svc-list .svc h3{font-size:1.272rem}
+.svc-list .svc p{font-size:.94rem;line-height:1.85}
+.svc-list .svc .ext{margin-top:8px}
+.biz-intro{margin-bottom:clamp(34px,4vw,55px);position:relative;max-width:min(560px,50%)}
+.biz-intro .anchor{position:absolute;top:calc(-1 * clamp(89px,10vw,144px));left:0;width:1px;height:1px}
+@media (max-width:860px){
+  .bsec{min-height:0;padding-block:0 clamp(40px,8vw,55px)}
+  .bsec>.wrap:first-child{padding-top:clamp(55px,9vw,89px)}
+  .bphoto,.bsec .bphoto{position:relative;width:100%;height:clamp(240px,66vw,380px);left:auto;right:auto;margin:0 0 28px;-webkit-mask-image:none;mask-image:none}
+  .btext,.bsec:not(.flip) .btext{width:auto;margin-left:0}
+  .biz-intro{max-width:none;margin-bottom:34px}
+  .bphoto{order:0}
+}
+/* 縦長の写真の顔が切れないよう位置を調整 */
 .bphoto img[src*="biz-education"]{object-position:50% 34%}
 .bphoto img[src*="biz-hospitality"]{object-position:50% 50%}
 .bphoto img[src*="biz-sustainability"]{object-position:50% 36%}
 .bphoto img[src*="biz-technology"]{object-position:50% 26%}
-.bphoto{aspect-ratio:1.272/1}
-@media (max-width:860px){.bphoto{aspect-ratio:1/1}}
-
-/* TOP：事業内容の見出しは、最初の領域（教育）のセクションに結合 */
-.biz-intro{margin-bottom:clamp(34px,5vw,55px);position:relative}
-.biz-intro .anchor{position:absolute;top:calc(-1 * clamp(89px,10vw,144px));left:0;width:1px;height:1px}
-
-/* HERO直下：波の装飾は置かず、写真下端のネイビーの丘からそのままベージュへ。ヒーローの下の余白も詰める */
-.hero{padding-bottom:clamp(21px,3vw,34px)}
-.biz-intro{padding-top:0}
