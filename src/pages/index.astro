@@ -24,6 +24,7 @@ import { history, images, company } from '../data/site';
   <Curve from="navy" to="beige" variant="2" />
 
   <section class="philo bg-beige" id="philosophy" style="padding-top:clamp(20px,4vw,60px)">
+    <div class="philo-bg" aria-hidden="false"><img src={images.philosophy} alt="青空を見上げて笑顔を浮かべる若い男女" width="1400" height="643" loading="lazy" decoding="async" /></div>
     <div class="wrap">
       <div class="philo-grid">
         <div data-reveal>
@@ -32,7 +33,6 @@ import { history, images, company } from '../data/site';
           <p class="lead">一人ひとりが光を放ち、その光が社会を照らす。私たちは「一笑懸命」を理念に、笑いながら全力で、未来へ向かいます。</p>
           <a class="btn btn-secondary" href="/philosophy/">企業理念を見る <span aria-hidden="true">→</span></a>
         </div>
-        <div class="philo-photo" data-reveal style="--d:.15s"><img src={images.philosophy} alt="青空を見上げて笑顔を浮かべる若い男女" width="1400" height="643" loading="lazy" decoding="async" data-speed="-0.04" /></div>
       </div>
     </div>
   </section>
