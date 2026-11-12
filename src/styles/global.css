@@ -517,3 +517,8 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 .msg+.msg{margin-top:1.4em}
 .msg:last-child{font-weight:800;font-size:clamp(1.15rem,1.7vw,1.4rem);margin-top:1.8em}
 @media (max-width:860px){.msg{max-width:none}}
+/* 最初の画面：「一笑懸命。」の上の横線を削除（線と、そのための上の余白を外す） */
+.hero .jp .name{border-top:0;padding-top:0}
+@media (min-width:861px){.hero .jp .name{padding-top:0}}
+@media (min-width:861px){.hero .jp{margin-top:34px}}
+@media (max-width:860px){.hero .jp{margin-top:26px}}
