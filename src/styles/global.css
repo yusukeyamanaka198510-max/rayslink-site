@@ -522,3 +522,5 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--sun);border-colo
 @media (min-width:861px){.hero .jp .name{padding-top:0}}
 @media (min-width:861px){.hero .jp{margin-top:34px}}
 @media (max-width:860px){.hero .jp{margin-top:26px}}
+/* TOPのお問い合わせ見出しを、Business／Education など他の大きな見出し（.biz-title）と同じ大きさ・太さにそろえる */
+.cta-sec .mega{font-size:clamp(2.618rem,7vw,5.236rem);font-weight:800;line-height:1.05;letter-spacing:-.03em}
